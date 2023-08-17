@@ -43,7 +43,7 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
       position="static"
       onMenuOpenChange={setIsMenuOpen}
       maxWidth="full"
-      className=" bg-indigo-600 m-0 p-0"
+      className={"bg-gray-950"}
     >
       <NavbarContent>
         <NavbarMenuToggle
@@ -86,10 +86,10 @@ export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
     </Link>
   ));
   return (
-    <Navbar isBordered maxWidth="full" className=" bg-gray-800 m-0 p-0">
+    <Navbar isBordered maxWidth="full" className=" bg-gray-700 m-0 p-0">
       <NavbarContent className=" text-white font-bold w-full p-0 m-0 ">
         <NavbarItem
-          className="hidden sm:flex flex-row items-center justify-center gap-2 w-full 
+          className="hidden sm:flex flex-row items-center justify-center gap-4 w-full 
         "
         >
           {menu}

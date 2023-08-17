@@ -9,7 +9,7 @@ const DashboardLayout = ({ children }: any) => {
         routes={[
           { name: "Dashboard", link: "/dashboard" },
           { name: "Puzzle Verse", link: "/dashboard/puzzleverse" },
-          { name: "Game 2", link: "/dashboard/game2" },
+          { name: "Neo Pixel", link: "/dashboard/neopixel" },
         ]}
       />
       {/* <Breadcrumbs /> */}

@@ -29,7 +29,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/page.jsx",
-    "components/CardArray.tsx.test"
+    "components/CardArray.tsx.test",
+    "app/dashboard/neopixel/page.js"
   ],
   "exclude": ["node_modules"]
 }
