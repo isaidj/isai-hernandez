@@ -1,4 +1,3 @@
-"use client";
 import { Providers } from "./providers";
 import { MainMenu } from "@/components/Menus";
 import "./globals.css";

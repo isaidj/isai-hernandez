@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 import { Cardcontainer } from "../../../components/Cardcontainer";
 import NavB from "../../../components/NavB";
 
-import { Input, Button, Navbar, Spacer } from "@nextui-org/react";
+import { Button, Navbar, Spacer } from "@nextui-org/react";
+import { Input } from "@nextui-org/input";
 import styles from "../../../components/cards.module.css";
-import { SearchIcon } from "../../../assets/icons";
+import { SearchIcon } from "../../../assets/Icons";
 
 const NeopixelPage = () => {
   const [images, setImages] = useState([]);
