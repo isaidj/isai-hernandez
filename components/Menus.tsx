@@ -53,13 +53,13 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
         <NavbarBrand>
           <NavbarItem className="flex flex-row items-center">
             <Image alt="logo" src={Logodev} width={50} />
-            <div className="ml-2 text-white font-mono flex flex-col">
+            <div className="ml-2 text-white  flex flex-col ">
               ISAIDEV343<span className="text-xs">v1.0.0</span>
             </div>
           </NavbarItem>
         </NavbarBrand>
         <NavbarItem
-          className="hidden sm:flex flex-row items-center  gap-2 font-bold 
+          className="hidden sm:flex flex-row items-center  gap-2 font-light text-white justify-center w-full
         "
         >
           {menu}

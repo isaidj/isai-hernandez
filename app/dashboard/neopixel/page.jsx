@@ -81,11 +81,11 @@ const NeopixelPage = () => {
             <Input
               type="text"
               name="input text"
-              labelPlaceholder="Buscador"
+              labelPlaceholder="Type here"
               bordered
               color="default"
               startContent={<SearchIcon />}
-              placeholder="Buscador"
+              placeholder="Search"
               className=" text-gray-800 font-bold ml-3 "
               onChange={(e) => setInput(e.target.value)}
             />
@@ -98,7 +98,7 @@ const NeopixelPage = () => {
               type="submit"
               onClick={handleSubmit}
             >
-              Buscar
+              Search
             </Button>
           </div>
         </label>
