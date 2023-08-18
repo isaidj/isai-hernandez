@@ -3,6 +3,7 @@ import { MainMenu } from "@/components/Menus";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
           />
           <main className="flex min-h-screen flex-col">{children}</main>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
