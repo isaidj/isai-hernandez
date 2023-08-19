@@ -24,19 +24,21 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const pathname = usePathname();
   const menu = routes.map((item, index) => (
-    <Link
-      href={item.link}
-      key={index}
-      className={
-        item.link !== "/"
-          ? pathname.includes(item.link)
-            ? "text-blue-500"
+    <NavbarMenuItem onClick={() => setIsMenuOpen(false)}>
+      <Link
+        href={item.link}
+        key={index}
+        className={
+          item.link !== "/"
+            ? pathname.includes(item.link)
+              ? "text-blue-500"
+              : ""
             : ""
-          : ""
-      }
-    >
-      {item.name}
-    </Link>
+        }
+      >
+        {item.name}
+      </Link>
+    </NavbarMenuItem>
   ));
   return (
     <Navbar
@@ -48,7 +50,7 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className="sm:hidden text-white"
         />
         <NavbarBrand>
           <NavbarItem className="flex flex-row items-center">
@@ -59,15 +61,13 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
           </NavbarItem>
         </NavbarBrand>
         <NavbarItem
-          className="hidden sm:flex flex-row items-center  gap-2 font-light text-white justify-center w-full
+          className="hidden sm:flex flex-row items-center  gap-2 font-light text-white justify-center w-full z-10
         "
         >
           {menu}
         </NavbarItem>
 
-        <NavbarMenu>
-          <NavbarMenuItem>{menu}</NavbarMenuItem>
-        </NavbarMenu>
+        <NavbarMenu>{menu}</NavbarMenu>
       </NavbarContent>
     </Navbar>
   );
@@ -77,16 +77,18 @@ export default MainMenu;
 export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
   const pathname = usePathname();
   const menu = routes.map((item, index) => (
-    <Link
-      href={item.link}
-      key={index}
-      className={pathname === item.link ? "text-blue-500" : ""}
-    >
-      {item.name}
-    </Link>
+    <NavbarMenuItem>
+      <Link
+        href={item.link}
+        key={index}
+        className={pathname === item.link ? "text-blue-500" : ""}
+      >
+        {item.name}
+      </Link>
+    </NavbarMenuItem>
   ));
   return (
-    <Navbar isBordered maxWidth="full" className=" bg-gray-700 m-0 p-0">
+    <Navbar isBordered className=" bg-gray-700 m-0 p-0 z-10">
       <NavbarContent className=" text-white font-bold w-full p-0 m-0 ">
         <NavbarItem
           className="hidden sm:flex flex-row items-center justify-center gap-4 w-full 
@@ -95,9 +97,7 @@ export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
           {menu}
         </NavbarItem>
         {/* <NavbarMenuToggle /> */}
-        <NavbarMenu>
-          <NavbarMenuItem>{menu}</NavbarMenuItem>
-        </NavbarMenu>
+        <NavbarMenu>{menu}</NavbarMenu>
       </NavbarContent>
     </Navbar>
   );

@@ -4,7 +4,7 @@ import React from "react";
 
 const DashboardLayout = ({ children }: any) => {
   return (
-    <section>
+    <section className=" bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
       <MenuSecodary
         routes={[
           { name: "Dashboard", link: "/dashboard" },
