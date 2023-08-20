@@ -8,7 +8,7 @@ import { Input } from "@nextui-org/input";
 import styles from "../../../components/cards.module.css";
 import { SearchIcon } from "../../../assets/Icons";
 import Tendencias from "../../../components/Tendencias";
-import { FastAverageColor } from "fast-average-color";
+
 const key_unsplash = "client_id=vwL9AtGcvwfhrI96O7kq6sK49n6DqxgwGrviH5TAhQw";
 const ImageHuntPage = () => {
   const [images, setImages] = useState([]);
@@ -34,10 +34,8 @@ const ImageHuntPage = () => {
 
     if (data.results) {
       setImages(data.results);
-      getAverageColor(data.results[0].urls.regular);
     } else {
       setImages(data);
-      getAverageColor(data[0].urls.regular);
     }
   };
 
