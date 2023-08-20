@@ -24,21 +24,20 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const pathname = usePathname();
   const menu = routes.map((item, index) => (
-    <NavbarMenuItem onClick={() => setIsMenuOpen(false)}>
-      <Link
-        href={item.link}
-        key={index}
-        className={
-          item.link !== "/"
-            ? pathname.includes(item.link)
-              ? "text-blue-500"
-              : ""
+    <Link
+      key={index}
+      href={item.link}
+      className={
+        item.link !== "/"
+          ? pathname.includes(item.link)
+            ? "text-blue-500"
             : ""
-        }
-      >
-        {item.name}
-      </Link>
-    </NavbarMenuItem>
+          : ""
+      }
+      onClick={() => setIsMenuOpen(false)}
+    >
+      {item.name}
+    </Link>
   ));
   return (
     <Navbar
@@ -77,15 +76,13 @@ export default MainMenu;
 export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
   const pathname = usePathname();
   const menu = routes.map((item, index) => (
-    <NavbarMenuItem>
-      <Link
-        href={item.link}
-        key={index}
-        className={pathname === item.link ? "text-blue-500" : ""}
-      >
-        {item.name}
-      </Link>
-    </NavbarMenuItem>
+    <Link
+      key={index}
+      href={item.link}
+      className={pathname === item.link ? "text-blue-500" : ""}
+    >
+      {item.name}
+    </Link>
   ));
   return (
     <Navbar isBordered className=" bg-gray-700 m-0 p-0 z-10">
@@ -96,8 +93,8 @@ export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
         >
           {menu}
         </NavbarItem>
-        {/* <NavbarMenuToggle /> */}
-        <NavbarMenu>{menu}</NavbarMenu>
+        {/* 
+        <NavbarMenu>{menu}</NavbarMenu> */}
       </NavbarContent>
     </Navbar>
   );

@@ -4,12 +4,12 @@ import React from "react";
 
 const DashboardLayout = ({ children }: any) => {
   return (
-    <section className=" bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
+    <section className=" bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 w-full min-h-screen">
       <MenuSecodary
         routes={[
           { name: "Dashboard", link: "/dashboard" },
           { name: "Puzzle Verse", link: "/dashboard/puzzleverse" },
-          { name: "Neo Pixel", link: "/dashboard/neopixel" },
+          { name: "Image Hunt", link: "/dashboard/imagehunt" },
         ]}
       />
       {/* <Breadcrumbs /> */}
