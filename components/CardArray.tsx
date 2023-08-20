@@ -11,9 +11,11 @@ interface Item {
 export const CardArray = ({
   items,
   loading,
+  win,
 }: {
   items: Item[][];
   loading: boolean;
+  win: (win: boolean) => void;
 }) => {
   const [itemsDuplicated, setItemsDuplicated] = useState<Item[][]>(items);
   const [selectedItems, setSelectedItems] = useState<Item[]>([]);
@@ -56,6 +58,9 @@ export const CardArray = ({
         );
         setItemsDuplicated(newMatrix);
         setSelectedItems([]);
+        if (newMatrix.every((row) => row.every((item) => item.flipped))) {
+          win(true);
+        }
       } else {
         const shakeError = (element: HTMLElement | null) => {
           if (element) {

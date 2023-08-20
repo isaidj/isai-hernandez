@@ -25,8 +25,8 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
   const pathname = usePathname();
   const menu = routes.map((item, index) => (
     <Link
-      href={item.link}
       key={index}
+      href={item.link}
       className={
         item.link !== "/"
           ? pathname.includes(item.link)
@@ -34,6 +34,7 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
             : ""
           : ""
       }
+      onClick={() => setIsMenuOpen(false)}
     >
       {item.name}
     </Link>
@@ -48,26 +49,24 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className="sm:hidden text-white"
         />
         <NavbarBrand>
           <NavbarItem className="flex flex-row items-center">
             <Image alt="logo" src={Logodev} width={50} />
-            <div className="ml-2 text-white font-mono flex flex-col">
+            <div className="ml-2 text-white  flex flex-col ">
               ISAIDEV343<span className="text-xs">v1.0.0</span>
             </div>
           </NavbarItem>
         </NavbarBrand>
         <NavbarItem
-          className="hidden sm:flex flex-row items-center  gap-2 font-bold 
+          className="hidden sm:flex flex-row items-center  gap-2 font-light text-white justify-center w-full z-10
         "
         >
           {menu}
         </NavbarItem>
 
-        <NavbarMenu>
-          <NavbarMenuItem>{menu}</NavbarMenuItem>
-        </NavbarMenu>
+        <NavbarMenu>{menu}</NavbarMenu>
       </NavbarContent>
     </Navbar>
   );
@@ -78,15 +77,15 @@ export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
   const pathname = usePathname();
   const menu = routes.map((item, index) => (
     <Link
-      href={item.link}
       key={index}
+      href={item.link}
       className={pathname === item.link ? "text-blue-500" : ""}
     >
       {item.name}
     </Link>
   ));
   return (
-    <Navbar isBordered maxWidth="full" className=" bg-gray-700 m-0 p-0">
+    <Navbar isBordered className=" bg-gray-700 m-0 p-0 z-10">
       <NavbarContent className=" text-white font-bold w-full p-0 m-0 ">
         <NavbarItem
           className="hidden sm:flex flex-row items-center justify-center gap-4 w-full 
@@ -94,10 +93,8 @@ export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
         >
           {menu}
         </NavbarItem>
-        {/* <NavbarMenuToggle /> */}
-        <NavbarMenu>
-          <NavbarMenuItem>{menu}</NavbarMenuItem>
-        </NavbarMenu>
+        {/* 
+        <NavbarMenu>{menu}</NavbarMenu> */}
       </NavbarContent>
     </Navbar>
   );
