@@ -44,7 +44,7 @@ const Tendencias = ({ onSearch }: { onSearch: (value: string) => void }) => {
                   onClick={(e) => {
                     onSearch(item.value);
                   }}
-                  className="border-b-2 border-transparent cursor-pointer whitespace-nowrap  hover:text-gray-400 hover:border-b-2 hover:border-gray-600 transition duration-300"
+                  className="text-slate-200 border-b-2 border-transparent cursor-pointer whitespace-nowrap  hover:text-gray-400 hover:border-b-2 hover:border-gray-600 transition duration-300"
                 >
                   {item.label}
                 </label>

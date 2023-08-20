@@ -47,7 +47,7 @@ const ImageHuntPage = () => {
     <div
       id="imagehunt"
       className={
-        "flex flex-col space-y-4 bg-gradient-to-r from-black via-gray-950 to-black "
+        "flex flex-col space-y-4 bg-gradient-to-r from-black via-gray-950 to-black w-full min-h-screen"
       }
     >
       <Navbar
