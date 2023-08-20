@@ -8,16 +8,15 @@ import { Input } from "@nextui-org/input";
 import styles from "../../../components/cards.module.css";
 import { SearchIcon } from "../../../assets/Icons";
 import Tendencias from "../../../components/Tendencias";
-
+import { FastAverageColor } from "fast-average-color";
 const key_unsplash = "client_id=vwL9AtGcvwfhrI96O7kq6sK49n6DqxgwGrviH5TAhQw";
-
 const ImageHuntPage = () => {
   const [images, setImages] = useState([]);
   const [input, setInput] = useState("");
 
-  const onSearchSubmit = async (value: string, fromTendencias: boolean) => {
+  const onSearchSubmit = async (value: string, fromTendencias?: boolean) => {
     let route = `https://api.unsplash.com/photos/?${key_unsplash}`;
-
+    console.log(value);
     if (value !== "" && fromTendencias) {
       route = `https://api.unsplash.com/search/photos/?query=${encodeURI(
         value
@@ -30,52 +29,70 @@ const ImageHuntPage = () => {
       )}&${key_unsplash}`;
     }
 
-    const response = await fetch(route);
-    const data = await response.json();
+    const rest = await fetch(route);
+    const data = await rest.json();
 
-    setImages(data.results || data);
+    if (data.results) {
+      setImages(data.results);
+      getAverageColor(data.results[0].urls.regular);
+    } else {
+      setImages(data);
+      getAverageColor(data[0].urls.regular);
+    }
   };
 
   useEffect(() => {
-    onSearchSubmit(input, false);
+    onSearchSubmit(input);
   }, []);
 
   return (
-    <div className="flex flex-col space-y-4 bg-gradient-to-r from-black via-gray-950 to-black">
+    <div
+      id="imagehunt"
+      className={
+        "flex flex-col space-y-4 bg-gradient-to-r from-black via-gray-950 to-black "
+      }
+    >
       <Navbar
         style={{ width: "100%", display: "flex" }}
-        className="bg-gray-800"
+        className={"bg-gray-800"}
       >
-        <h1 className="text-2xl text-white font-extralight">Image Hunt</h1>
-        <div className={styles.containerContet}>
-          <Spacer />
-          <Input
-            type="text"
-            name="input text"
-            color="default"
-            startContent={<SearchIcon />}
-            placeholder="Search"
-            className="text-gray-800 font-bold ml-3"
-            onChange={(e) => setInput(e.target.value)}
-          />
-          <Button
-            className="bg-gray-950 text-white font-bold ml-3 hover:bg-gray-700"
-            type="submit"
-            onClick={() => onSearchSubmit(input, false)}
-          >
-            Search
-          </Button>
-        </div>
+        <h1 className="text-2xl  text-white font-extralight">Image Hunt</h1>
+
+        <label>
+          <div className={styles.containerContet}>
+            <Spacer />
+            <Input
+              type="text"
+              name="input text"
+              color="default"
+              startContent={<SearchIcon />}
+              placeholder="Search"
+              className=" text-gray-800 font-bold ml-3 "
+              onChange={(e) => setInput(e.target.value)}
+            />
+
+            <Button
+              className={
+                "bg-gray-950 text-white font-bold ml-3 hover:bg-gray-700"
+              }
+              type="submit"
+              onClick={() => onSearchSubmit(input, false)}
+            >
+              Search
+            </Button>
+          </div>
+        </label>
       </Navbar>
-      <div className="flex">
+      <div className={"flex"}>
         <div>
           <Tendencias onSearch={(value) => onSearchSubmit(value, true)} />
         </div>
-        <div className="flex flex-col space-y-4">
+
+        <div className={"flex flex-col space-y-4"}>
           <div className={styles.galleryImagesGrid}>
-            {images.map((img, index) => (
-              <ImageCard key={index} img={img} />
-            ))}
+            {images.map((img, index) => {
+              return <ImageCard key={index} img={img} />;
+            })}
           </div>
         </div>
       </div>
