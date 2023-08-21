@@ -3,7 +3,7 @@ import Image from "next/image";
 import Logodev from "../public/logodev.png";
 import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   Navbar,
   NavbarBrand,
@@ -75,11 +75,12 @@ export default MainMenu;
 
 export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
   const pathname = usePathname();
+  console.log(pathname);
   const menu = routes.map((item, index) => (
     <Link
       key={index}
       href={item.link}
-      className={pathname === item.link ? "text-blue-500" : ""}
+      className={pathname.includes(item.link) ? "text-blue-500" : ""}
     >
       {item.name}
     </Link>

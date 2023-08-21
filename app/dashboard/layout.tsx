@@ -7,7 +7,6 @@ const DashboardLayout = ({ children }: any) => {
     <section className=" bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 w-full min-h-screen">
       <MenuSecodary
         routes={[
-          { name: "Dashboard", link: "/dashboard" },
           { name: "Puzzle Verse", link: "/dashboard/puzzleverse" },
           { name: "Image Hunt", link: "/dashboard/imagehunt" },
         ]}
