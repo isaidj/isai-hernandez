@@ -25,6 +25,12 @@ const ImageHuntPage = () => {
   console.log("idPhotoParam", photoId);
   console.log("pathname", pathname);
 
+  //si tiene el parametro photoId, entonces redirecciona a la ruta con el id, solo en la primera carga
+  if (params.get("photoId")) {
+    //redireccionado
+    router.replace(`/dashboard/imagehunt/photo/${photoId}`, { scroll: false });
+  }
+
   const onSearchSubmit = async (value: string, fromTendencias?: boolean) => {
     let route = `https://api.unsplash.com/photos/?${key_unsplash}`;
     console.log(value);
@@ -69,7 +75,7 @@ const ImageHuntPage = () => {
       }
     >
       {/* {photoId && <ModalGallery onClose={() => null} />} */}
-      {/* {photoId && (
+      {photoId && (
         <ModalGallery
           onClose={() =>
             router.replace("/dashboard/imagehunt", { scroll: false })
@@ -77,7 +83,7 @@ const ImageHuntPage = () => {
           image={images.find((img) => img.id === photoId)}
           images={images}
         />
-      )} */}
+      )}
       <Navbar
         style={{ width: "100%", display: "flex" }}
         className={"bg-gray-800 z-10"}
@@ -120,15 +126,24 @@ const ImageHuntPage = () => {
               return (
                 <Link
                   key={index}
-                  href={`imagehunt/photo/${img.id}`}
+                  href={`?photoId=${img.id}`}
                   // as={`/dashboard/imagehunt/${img.id}`}
                   // shallow
+
                   scroll={false}
                 >
                   <img
                     src={img.urls.regular}
                     className="card mb-3  relative rounded-2xl cursor-pointer"
                     alt="..."
+                    // onClick={
+                    //   () =>
+                    //     router.replace(`?photoId=${img.id}`, { scroll: false })
+                    //   // router.replace(`/dashboard/imagehunt/photo/${img.id}`, {
+                    //   //   scroll: false,
+
+                    //   // })
+                    // }
                   />
                 </Link>
               );
