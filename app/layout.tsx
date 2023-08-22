@@ -1,8 +1,9 @@
 import { Providers } from "./providers";
-import { MainMenu } from "@/components/Menus";
+import { MainMenu } from "@/app/components/Menus";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
+import LocalFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -12,7 +13,10 @@ const roboto = Roboto({
   subsets: ["latin"],
   display: "swap",
 });
-
+const chalkboard = LocalFont({
+  src: "../public/fonts/Chalkboard.ttf",
+  variable: "--font-chalkboard",
+});
 export const metadata: Metadata = {
   title: "Isaidev343",
   description: "Web developer portfolio",
@@ -24,18 +28,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={[inter.className, chalkboard.variable].join(" ")}
+    >
+      <head>
+        <Analytics />
+      </head>
       <body className={roboto.className}>
         <Providers>
-          <MainMenu
-            routes={[
-              { name: "Home", link: "/" },
-              { name: "Applications", link: "/dashboard" },
-            ]}
-          />
-          <main className="flex min-h-screen flex-col">{children}</main>
+          <main className="dark flex min-h-screen flex-col">{children}</main>
         </Providers>
-        <Analytics />
       </body>
     </html>
   );

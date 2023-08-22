@@ -1,5 +1,5 @@
 "use client";
-import CardArray from "@/components/CardArray";
+import CardArray from "@/app/components/CardArray";
 import { useTimer } from "@/hooks";
 import React, { useEffect, useState } from "react";
 
