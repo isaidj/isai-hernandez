@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Logodev from "../public/logodev.png";
+import Logodev from "../../public/logodev.png";
 import React from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -28,7 +28,7 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
       key={index}
       href={item.link}
       className={
-        item.link !== "/"
+        "hover:text-blue-500  text-white font-bold ml-3" + item.link !== "/"
           ? pathname.includes(item.link)
             ? "text-blue-500"
             : ""
@@ -44,7 +44,10 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
       position="static"
       onMenuOpenChange={setIsMenuOpen}
       maxWidth="full"
-      className={"bg-gray-950"}
+      // isBlurred={true}
+      className="rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 bg-gray-700"
+
+      // isBordered
     >
       <NavbarContent>
         <NavbarMenuToggle
@@ -54,13 +57,11 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
         <NavbarBrand>
           <NavbarItem className="flex flex-row items-center">
             <Image alt="logo" src={Logodev} width={50} />
-            <div className="ml-2 text-white  flex flex-col ">
-              ISAIDEV343<span className="text-xs">v1.0.0</span>
-            </div>
+            <div className="ml-2 text-zinc-300  flex flex-col ">Isaí H </div>
           </NavbarItem>
         </NavbarBrand>
         <NavbarItem
-          className="hidden sm:flex flex-row items-center  gap-2 font-light text-white justify-center w-full z-10
+          className="hidden sm:flex flex-row items-center  gap-2 font-light text-zinc-200 justify-center w-full z-10
         "
         >
           {menu}
@@ -86,7 +87,10 @@ export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
     </Link>
   ));
   return (
-    <Navbar isBordered className=" bg-gray-700 m-0 p-0 z-10">
+    <Navbar
+      isBordered
+      className=" rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 bg-gray-700 m-0 p-0 z-10"
+    >
       <NavbarContent className=" text-white font-bold w-full p-0 m-0 ">
         <NavbarItem
           className="hidden sm:flex flex-row items-center justify-center gap-4 w-full 
@@ -107,7 +111,7 @@ export const Bradcrumb = () => {
       <div className="flex flex-row items-center">
         <Link href="/">Home</Link>
         <span className="mx-2">/</span>
-        <Link href="/dashboard">Dashboard</Link>
+        <Link href="/applications">applications</Link>
       </div>
     </div>
   );

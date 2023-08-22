@@ -1,18 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { ImageCard } from "../../../components/ImageCard";
+import { ImageCard } from "../../components/ImageCard";
 
 import { Spacer } from "@nextui-org/spacer";
 import { Navbar } from "@nextui-org/navbar";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
-import styles from "../../../components/cards.module.css";
+import styles from "../../components/cards.module.css";
 import { SearchIcon } from "../../../assets/Icons";
-import Tendencias from "../../../components/Tendencias";
+import Tendencias from "../../components/Tendencias";
 import Link from "next/link";
 import { useParams, usePathname, useSearchParams } from "next/navigation";
 import { redirect, useRouter } from "next/navigation";
-import ModalGallery from "@/components/ModalGallery";
+import ModalGallery from "@/app/components/ModalGallery";
 const key_unsplash = "client_id=vwL9AtGcvwfhrI96O7kq6sK49n6DqxgwGrviH5TAhQw";
 
 const ImageHuntPage = () => {
@@ -26,10 +26,12 @@ const ImageHuntPage = () => {
   console.log("pathname", pathname);
 
   //si tiene el parametro photoId, entonces redirecciona a la ruta con el id, solo en la primera carga
-  if (params.get("photoId")) {
-    //redireccionado
-    router.replace(`/dashboard/imagehunt/photo/${photoId}`, { scroll: false });
-  }
+  // if (params.get("photoId")) {
+  //   //redireccionado
+  //   router.replace(`/applications/imagehunt/photo/${photoId}`, {
+  //     scroll: false,
+  //   });
+  // }
 
   const onSearchSubmit = async (value: string, fromTendencias?: boolean) => {
     let route = `https://api.unsplash.com/photos/?${key_unsplash}`;
@@ -61,7 +63,7 @@ const ImageHuntPage = () => {
   }, []);
   useEffect(() => {
     if (photoId) {
-      router.replace(`/dashboard/imagehunt/?photoId=${photoId}`, {
+      router.replace(`/applications/imagehunt/?photoId=${photoId}`, {
         scroll: false,
       });
     }
@@ -78,43 +80,13 @@ const ImageHuntPage = () => {
       {photoId && (
         <ModalGallery
           onClose={() =>
-            router.replace("/dashboard/imagehunt", { scroll: false })
+            router.replace("/applications/imagehunt", { scroll: false })
           }
           image={images.find((img) => img.id === photoId)}
           images={images}
         />
       )}
-      <Navbar
-        style={{ width: "100%", display: "flex" }}
-        className={"bg-gray-800 z-10"}
-      >
-        <h1 className="text-2xl  text-white font-extralight">Image Hunt</h1>
 
-        <label>
-          <div className={styles.containerContet}>
-            <Spacer />
-            <Input
-              type="text"
-              name="input text"
-              color="default"
-              startContent={<SearchIcon />}
-              placeholder="Search"
-              className=" text-gray-800 font-bold ml-3 "
-              onChange={(e) => setInput(e.target.value)}
-            />
-
-            <Button
-              className={
-                "bg-gray-950 text-white font-bold ml-3 hover:bg-gray-700"
-              }
-              type="submit"
-              onClick={() => onSearchSubmit(input, false)}
-            >
-              Search
-            </Button>
-          </div>
-        </label>
-      </Navbar>
       <div className={"flex"}>
         <div>
           <Tendencias onSearch={(value) => onSearchSubmit(value, true)} />
@@ -127,7 +99,7 @@ const ImageHuntPage = () => {
                 <Link
                   key={index}
                   href={`?photoId=${img.id}`}
-                  // as={`/dashboard/imagehunt/${img.id}`}
+                  // as={`/applications/imagehunt/${img.id}`}
                   // shallow
 
                   scroll={false}
@@ -139,7 +111,7 @@ const ImageHuntPage = () => {
                     // onClick={
                     //   () =>
                     //     router.replace(`?photoId=${img.id}`, { scroll: false })
-                    //   // router.replace(`/dashboard/imagehunt/photo/${img.id}`, {
+                    //   // router.replace(`/applications/imagehunt/photo/${img.id}`, {
                     //   //   scroll: false,
 
                     //   // })

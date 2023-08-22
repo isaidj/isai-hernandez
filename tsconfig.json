@@ -29,8 +29,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/page.jsx",
-    "components/CardArray.tsx.test",
-    "app/dashboard/imagehunt/page.js"
+    "app/components/CardArray.tsx.test",
+    "app/applications/imagehunt/page.js"
   ],
   "exclude": ["node_modules"]
 }

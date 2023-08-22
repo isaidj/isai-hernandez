@@ -24,3 +24,13 @@
     transform: translateX(100px);
   }
 }
+
+/* new font */
+@font-face {
+  font-family: "Chalkboard.ttf";
+  src: url("Chalkboard.ttf");
+}
+
+.backgroundtest {
+  background-color: #f5f5f5;
+}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
-import downloadPhoto from "@/utils/DownloadPhoto";
+import downloadPhoto from "@/utils/downloadPhoto";
 import { CloseIcon } from "@/assets/Icons";
 
 export const ModalGallery = ({
