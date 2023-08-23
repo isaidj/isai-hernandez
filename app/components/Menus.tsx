@@ -13,6 +13,8 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/react";
+import { useEffect, useState } from "react";
+import { MousePositionComponent } from "./MousePotionElement";
 
 //create inteface of routes
 interface routes {
@@ -22,6 +24,7 @@ interface routes {
 
 export const MainMenu = ({ routes }: { routes: routes[] }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
   const pathname = usePathname();
   const menu = routes.map((item, index) => (
     <Link
@@ -39,13 +42,14 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
       {item.name}
     </Link>
   ));
+
   return (
     <Navbar
       position="static"
       onMenuOpenChange={setIsMenuOpen}
       maxWidth="full"
       // isBlurred={true}
-      className="rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 bg-gray-700"
+      className="relative rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 bg-gray-700"
 
       // isBordered
     >
@@ -81,17 +85,14 @@ export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
     <Link
       key={index}
       href={item.link}
-      className={pathname.includes(item.link) ? "text-blue-500" : ""}
+      className={"text-sm  text-zinc-400 hover:text-zinc-300"}
     >
       {item.name}
     </Link>
   ));
   return (
-    <Navbar
-      isBordered
-      className=" rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 bg-gray-700 m-0 p-0 z-10"
-    >
-      <NavbarContent className=" text-white font-bold w-full p-0 m-0 ">
+    <Navbar isBordered className=" rounded-lg w-5/6 p-0 z-10 h-7 self-center">
+      <NavbarContent className=" text-white  w-full p-0 m-0 ">
         <NavbarItem
           className="hidden sm:flex flex-row items-center justify-center gap-4 w-full 
         "
@@ -117,7 +118,6 @@ export const Bradcrumb = () => {
   );
 };
 
-import { useEffect, useState } from "react";
 interface Breadcrumb {
   breadcrumb: string;
   href: string;

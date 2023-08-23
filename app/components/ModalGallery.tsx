@@ -38,18 +38,6 @@ export const ModalGallery = ({
         </header>
         <div className="flex flex-col justify-between items-center ">
           <img src={image.urls.regular} alt="" className="rounded-2xl h-96" />
-          {/* <div className="flex flex-row space-y-4">
-            {images.map((img, index) => {
-              return (
-                <img
-                  key={index}
-                  src={img.urls.small_s3}
-                  className="card mb-3  relative rounded-2xl cursor-pointer"
-                  alt="..."
-                />
-              );
-            })}
-          </div> */}
         </div>
         <div className="p-2 border-t border-gray-200">
           <div className="flex flex-row justify-between">

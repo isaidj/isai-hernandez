@@ -73,9 +73,12 @@ const ramdomizeMatriz = ({
 
   return matrix;
 };
+type language = "es" | "en" | "it" | "de";
+type mode = 2 | 4 | 6 | 8;
 
 const Game = () => {
-  const [mode, setMode] = useState(4); // 0: 4x4, 1: 6x6, 2: 10x10
+  const [mode, setMode] = useState<mode>(4);
+  const [language, setLanguage] = useState<language>("en");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [win, setWin] = useState(false);
@@ -85,7 +88,7 @@ const Game = () => {
     const nOfWords = Math.floor(mode ** 2 / 2);
     const getData = async () => {
       const data = await fetch(
-        `https://random-word-api.herokuapp.com/word?lang=es&number=${nOfWords}`
+        `https://random-word-api.herokuapp.com/word?lang=${language}&number=${nOfWords}`
       );
       const res = await data.json();
       console.log(res);
@@ -93,7 +96,7 @@ const Game = () => {
       setLoading(false);
     };
     getData();
-  }, [mode]);
+  }, [mode, language]);
   useEffect(() => {
     const winModal = document.getElementById("winModal");
     if (winModal) {
@@ -107,7 +110,7 @@ const Game = () => {
   }, [win]);
 
   return (
-    <div className="flex flex-col justify-center items-center gap-4 mt-4">
+    <div className="flex flex-col justify-center items-center gap-4  bg-gradient-to-r from-black via-gray-900 to-black w-full min-h-screen">
       <h1 className=" text-slate-200 text-3xl font-bold text-center">
         Puzzle verse
       </h1>
@@ -141,6 +144,48 @@ const Game = () => {
           8x8
         </button>
       </div>
+      <div
+        id="language"
+        className="flex flex-row justify-center items-center gap-2"
+      >
+        <button
+          className={
+            "bg-zinc-700 text-sm text-zinc-100 font-bold px-4 py-2 rounded-lg shadow-lg hover:bg-zinc-600 transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-110 " +
+            (language === "en" ? "bg-zinc-900 animate-pulse" : "")
+          }
+          onClick={() => setLanguage("en")}
+        >
+          English 🍔
+        </button>
+        <button
+          className={
+            "bg-zinc-700 text-sm text-zinc-100 font-bold px-4 py-2 rounded-lg shadow-lg hover:bg-zinc-600 transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-110 " +
+            (language === "es" ? "bg-zinc-500 animate-pulse" : "")
+          }
+          onClick={() => setLanguage("es")}
+        >
+          Spanish ☕
+        </button>
+        <button
+          className={
+            "bg-zinc-700 text-sm text-zinc-100 font-bold px-4 py-2 rounded-lg shadow-lg hover:bg-zinc-600 transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-110 " +
+            (language === "it" ? "bg-zinc-500 animate-pulse" : "")
+          }
+          onClick={() => setLanguage("it")}
+        >
+          Italian 🍕
+        </button>
+        <button
+          className={
+            "bg-zinc-700 text-sm text-zinc-100 font-bold px-4 py-2 rounded-lg shadow-lg hover:bg-zinc-600 transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-110 " +
+            (language === "de" ? "bg-zinc-500 animate-pulse" : "")
+          }
+          onClick={() => setLanguage("de")}
+        >
+          German 🍺
+        </button>
+      </div>
+
       {/* <Timer /> */}
       <CardArray
         items={ramdomizeMatriz({ array: data, cant: mode })}

@@ -10,11 +10,8 @@ const ImageHuntLayout = ({ children }: any) => {
     console.log(value);
   };
   return (
-    <div>
-      <Navbar
-        style={{ width: "100%", display: "flex" }}
-        className={"bg-gray-800 z-10"}
-      >
+    <div className="bg-gradient-to-r from-black via-gray-950 to-black min-h-screen">
+      <Navbar style={{ width: "100%", display: "flex" }} className={" z-10 "}>
         <h1 className="text-2xl  text-white font-extralight">Image Hunt</h1>
 
         <label>
@@ -25,15 +22,16 @@ const ImageHuntLayout = ({ children }: any) => {
                 type="text"
                 name="input text"
                 color="default"
-                startContent={<SearchIcon />}
+                startContent={<SearchIcon color="white" />}
                 placeholder="Search"
-                className=" text-gray-800 font-bold ml-3 "
+                className=" text-zinc-300 font-bold ml-3 "
+
                 //   onChange={(e) => setInput(e.target.value)}
               />
 
               <Button
                 className={
-                  "bg-gray-950 text-white font-bold ml-3 hover:bg-gray-700"
+                  "bg-gray-950 text-white font-bold ml-3 hover:bg-gray-700 "
                 }
                 type="submit"
                 //   onClick={() => onSearchSubmit(input, false)}

@@ -1,6 +1,7 @@
 import MainMenu from "@/app/components/Menus";
 import Link from "next/link";
 import { ParticlesTriangle } from "./components/Particles";
+import { MousePositionComponent } from "./components/MousePotionElement";
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
       <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
-        <h1 className="z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
+        <h1 className="z-10 text-6xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
           Developer
         </h1>
 
@@ -33,6 +34,10 @@ export default function Home() {
             </h2>
           </div>
         </header>
+        <div
+          className="hidden opacity-0 w-screen h-px animate-glow md:block animate-fade-right-stay   bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0"
+          style={{ animationDelay: "1600ms" }}
+        />
       </div>
     </main>
   );

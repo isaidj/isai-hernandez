@@ -70,12 +70,7 @@ const ImageHuntPage = () => {
   }, []);
 
   return (
-    <div
-      id="imagehunt"
-      className={
-        "flex flex-col space-y-4 bg-gradient-to-r from-black via-gray-950 to-black "
-      }
-    >
+    <div id="imagehunt" className={"flex flex-col space-y-4"}>
       {/* {photoId && <ModalGallery onClose={() => null} />} */}
       {photoId && (
         <ModalGallery
@@ -87,13 +82,14 @@ const ImageHuntPage = () => {
         />
       )}
 
-      <div className={"flex"}>
+      <div className={"flex justify-start"}>
         <div>
           <Tendencias onSearch={(value) => onSearchSubmit(value, true)} />
         </div>
 
-        <div className={"flex flex-col space-y-4"}>
+        <div id="gallery" className={"flex flex-col space-y-4"}>
           <div className={styles.galleryImagesGrid}>
+            {/* <ImagesSkeleton /> */}
             {images.map((img, index) => {
               return (
                 <Link
@@ -128,3 +124,47 @@ const ImageHuntPage = () => {
 };
 
 export default ImageHuntPage;
+
+const imagesSizes = [
+  {
+    width: "300px",
+    height: "300px",
+  },
+  {
+    width: "900px",
+    height: "800px",
+  },
+  {
+    width: "800px",
+    height: "1000px",
+  },
+  {
+    width: "600px",
+    height: "600px",
+  },
+  {
+    width: "500px",
+    height: "500px",
+  },
+];
+const randomImageSize = () => {
+  const size = imagesSizes[Math.floor(Math.random() * imagesSizes.length)];
+  return {
+    width: size.width,
+    height: size.height,
+  };
+};
+
+const ImagesSkeleton = () => {
+  return Array(10)
+    .fill(0)
+    .map((_, index) => {
+      return (
+        <div
+          key={index}
+          className=" card mb-3  relative rounded-2xl cursor-pointer bg-slate-600"
+          style={randomImageSize()}
+        ></div>
+      );
+    });
+};
