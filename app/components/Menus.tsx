@@ -93,7 +93,7 @@ export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
     >
       <NavbarContent className=" text-white font-bold w-full p-0 m-0 ">
         <NavbarItem
-          className="sm:flex flex-row items-center justify-center gap-4 w-full 
+          className=" hidden sm:flex flex-row items-center justify-center gap-4 w-full 
         "
         >
           {menu}
