@@ -1,9 +1,9 @@
 "use client";
 import { Button, Input, Navbar, Spacer } from "@nextui-org/react";
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import styles from "../../../components/cards.module.css";
 import { SearchIcon } from "@/assets/Icons";
-const ImageHuntLayout = ({ children }: any) => {
+const ImageHuntLayout = ({ children, modal }: any) => {
   //   const [input, setInput] = useState("");
   const handleSearch = (value: any) => {
     console.log("search");
@@ -12,11 +12,15 @@ const ImageHuntLayout = ({ children }: any) => {
   return (
     <div className="bg-gradient-to-r from-black via-gray-950 to-black min-h-screen">
       <Navbar style={{ width: "100%", display: "flex" }} className={" z-10 "}>
-        <h1 className="text-2xl  text-white font-extralight">Image Hunt</h1>
+        <h1 className="text-2xl  text-white font-extralight whitespace-nowrap">
+          Image Hunt
+        </h1>
 
         <label>
           <Spacer />
-          <form onSubmit={(e) => handleSearch(e)}>
+          <form
+          // onSubmit={(e) => handleSearch(e)}
+          >
             <div className="flex items-center">
               <Input
                 type="text"
@@ -43,6 +47,7 @@ const ImageHuntLayout = ({ children }: any) => {
         </label>
       </Navbar>
       {children}
+      {modal}
     </div>
   );
 };

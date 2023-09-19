@@ -8,16 +8,17 @@ import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import styles from "../../components/cards.module.css";
 import { SearchIcon } from "../../../assets/Icons";
-import Tendencias from "../../components/Tendencias";
+import Tendencias, { TendenciasHorizontal } from "../../components/Tendencias";
 import Link from "next/link";
 import { useParams, usePathname, useSearchParams } from "next/navigation";
 import { redirect, useRouter } from "next/navigation";
-import ModalGallery from "@/app/components/ModalGallery";
+import ModalGallery from "@/app/components/Modal/ModalGallery";
 const key_unsplash = "client_id=vwL9AtGcvwfhrI96O7kq6sK49n6DqxgwGrviH5TAhQw";
 
 const ImageHuntPage = () => {
   const [images, setImages] = useState<any[]>([]);
   const [input, setInput] = useState("");
+  const [photoIdParam, setPhotoIdParam] = useState("");
   const params = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -61,29 +62,28 @@ const ImageHuntPage = () => {
   useEffect(() => {
     onSearchSubmit(input);
   }, []);
-  useEffect(() => {
-    if (photoId) {
-      router.replace(`/applications/imagehunt/?photoId=${photoId}`, {
-        scroll: false,
-      });
-    }
-  }, []);
 
   return (
     <div id="imagehunt" className={"flex flex-col space-y-4"}>
       {/* {photoId && <ModalGallery onClose={() => null} />} */}
-      {photoId && (
-        <ModalGallery
-          onClose={() =>
-            router.replace("/applications/imagehunt", { scroll: false })
-          }
-          image={images.find((img) => img.id === photoId)}
-          images={images}
+
+      {/* <ModalGallery
+        isOpen={!!photoId}
+        onClose={() =>
+          router.replace(`/applications/imagehunt`, { scroll: false })
+        }
+        image={images.find((img) => img.id === photoId)}
+        images={images}
+      /> */}
+
+      <div>
+        <TendenciasHorizontal
+          onSearch={(value) => onSearchSubmit(value, true)}
         />
-      )}
+      </div>
 
       <div className={"flex justify-start"}>
-        <div>
+        <div className={"hidden sm:flex flex-col space-y-4 sm:max-w-xs "}>
           <Tendencias onSearch={(value) => onSearchSubmit(value, true)} />
         </div>
 
@@ -94,10 +94,10 @@ const ImageHuntPage = () => {
               return (
                 <Link
                   key={index}
-                  href={`?photoId=${img.id}`}
-                  // as={`/applications/imagehunt/${img.id}`}
-                  // shallow
-
+                  href={`/applications/imagehunt/photo/${img.id}`}
+                  //decora los parametros de la url
+                  // as={`/photo/${img.id}`}
+                  // replace
                   scroll={false}
                 >
                   <img

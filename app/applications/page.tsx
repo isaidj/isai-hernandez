@@ -26,14 +26,14 @@ const Page = () => {
         <div className=" grid grid-cols-1 flex-col items-end gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8  ">
           {routes.map((route) => (
             <Link href={route.link} key={route.name} className="group">
-              <div className="aspect-h-1  aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+              <div className="aspect-h-1 aspect-square  aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                 <Image
                   src={route.image}
                   alt={route.name}
-                  className="h-80 w-80 object-cover object-center group-hover:opacity-75 grid "
+                  className="h-80 w-80 object-cover aspect-square object-center group-hover:opacity-75 grid "
                 />
               </div>
-              <h3 className="mt-4 text-sm text-gray-600">{route.name}</h3>
+              <h3 className="mt-4 ml-4 text-sm text-gray-500">{route.name}</h3>
               {/* <p className="mt-1 text-lg font-medium text-gray-900">New tab</p> */}
             </Link>
           ))}

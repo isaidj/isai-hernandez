@@ -15,6 +15,7 @@ import {
 } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { MousePositionComponent } from "./MousePotionElement";
+import { BackIcon } from "@/assets/Icons";
 
 //create inteface of routes
 interface routes {
@@ -54,24 +55,21 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
       // isBordered
     >
       <NavbarContent>
-        <NavbarMenuToggle
+        {/* <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden text-white"
-        />
+        /> */}
         <NavbarBrand>
           <NavbarItem className="flex flex-row items-center">
             <Image alt="logo" src={Logodev} width={50} />
             <div className="ml-2 text-zinc-300  flex flex-col ">Isaí H </div>
           </NavbarItem>
         </NavbarBrand>
-        <NavbarItem
-          className="hidden sm:flex flex-row items-center  gap-2 font-light text-zinc-200 justify-center w-full z-10
-        "
-        >
+        <NavbarItem className=" flex flex-row items-center justify-end    gap-2 font-light text-zinc-200 w-full z-10  sm:justify-center">
           {menu}
         </NavbarItem>
 
-        <NavbarMenu>{menu}</NavbarMenu>
+        {/* <NavbarMenu>{menu}</NavbarMenu> */}
       </NavbarContent>
     </Navbar>
   );
@@ -79,28 +77,48 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
 export default MainMenu;
 
 export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
-  const pathname = usePathname();
-  console.log(pathname);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const lastPath = usePathname().split("/").pop();
+  console.log(lastPath);
+
   const menu = routes.map((item, index) => (
     <Link
       key={index}
       href={item.link}
-      className={"text-sm  text-zinc-400 hover:text-zinc-300"}
+      className={
+        lastPath === item.link.split("/").pop()
+          ? "text-amber-400 text-sm"
+          : "text-zinc-300 text-sm"
+      }
+      // style={
+      //   lastPath === item.link.split("/").pop() ? { color: "#fbbf24" } : {}
+      // }
     >
       {item.name}
     </Link>
   ));
   return (
-    <Navbar isBordered className=" rounded-lg w-5/6 p-0 z-10 h-7 self-center">
-      <NavbarContent className=" text-white  w-full p-0 m-0 ">
+    <Navbar
+      isBordered
+      className="relative flex rounded-lg w-5/6 p-0 z-10 h-8 self-center"
+    >
+      <Link href="/" className="h-full">
+        <BackIcon className=" absolute fill-zinc-300 w-6 h-full ml-2 hover:fill-amber-400 cursor-pointer" />
+      </Link>
+
+      <NavbarMenuToggle
+        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        className="sm:hidden text-white h-14 self-center"
+      />
+      <NavbarContent className="hidden text-white  w-full p-0 m-0  sm:flex ">
         <NavbarItem
           className="hidden sm:flex flex-row items-center justify-center gap-4 w-full 
         "
         >
           {menu}
         </NavbarItem>
-        {/* 
-        <NavbarMenu>{menu}</NavbarMenu> */}
+
+        <NavbarMenu>{menu}</NavbarMenu>
       </NavbarContent>
     </Navbar>
   );

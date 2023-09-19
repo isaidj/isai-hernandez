@@ -8,20 +8,15 @@ export default function Home() {
     <main className="flex min-h-screen  flex-col  items-center pt-3 sm:p-24 sm:pt-9 relative bg-gradient-to-r from-black via-gray-900 to-black gap-4">
       <ParticlesTriangle />
 
-      <MainMenu
-        routes={[
-          { name: "Home", link: "/" },
-          { name: "Applications", link: "/applications" },
-        ]}
-      />
+      <MainMenu routes={[{ name: "Applications", link: "/applications" }]} />
       <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-        <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className=" w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
         <h1 className="z-10 text-6xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
           Developer
         </h1>
 
-        <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className=" w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         <header className="flex flex-row justify-center w-full">
           <div className="my-16 text-center animate-fade-in">
             <h2 className="text-sm  text-zinc-500 sm:w-90">
@@ -35,7 +30,7 @@ export default function Home() {
           </div>
         </header>
         <div
-          className="hidden opacity-0 w-screen h-px animate-glow md:block animate-fade-right-stay   bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0"
+          className=" opacity-0 w-screen h-px animate-glow md:block animate-fade-right-stay   bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0"
           style={{ animationDelay: "1600ms" }}
         />
       </div>

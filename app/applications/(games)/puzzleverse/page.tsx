@@ -120,25 +120,37 @@ const Game = () => {
 
       <div className="flex flex-row justify-center items-center gap-2">
         <button
-          className="bg-blue-500 text-white font-bold px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+          className={
+            "bg-blue-500 text-white font-bold px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-110" +
+            (mode === 2 ? " bg-blue-900 animate-pulse" : "")
+          }
           onClick={() => setMode(2)}
         >
           2x2
         </button>
         <button
-          className="bg-blue-500 text-white font-bold px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+          className={
+            "bg-blue-500 text-white font-bold px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-110" +
+            (mode === 4 ? " bg-blue-900 animate-pulse" : "")
+          }
           onClick={() => setMode(4)}
         >
           4x4
         </button>
         <button
-          className="bg-blue-500 text-white font-bold px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+          className={
+            "bg-blue-500 text-white font-bold px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-110" +
+            (mode === 6 ? " bg-blue-900 animate-pulse" : "")
+          }
           onClick={() => setMode(6)}
         >
           6x6
         </button>
         <button
-          className="bg-blue-500 text-white font-bold px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+          className={
+            "bg-blue-500 text-white font-bold px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition duration-100 ease-in-out transform hover:-translate-y-1 hover:scale-110" +
+            (mode === 8 ? " bg-blue-900 animate-pulse" : "")
+          }
           onClick={() => setMode(8)}
         >
           8x8
