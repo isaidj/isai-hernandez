@@ -8,6 +8,7 @@ const DashboardLayout = ({ children }: any) => {
       <MenuSecodary
         routes={[
           { name: "Applications", link: "/applications" },
+          { name: "Nike City", link: "/applications/product" },
           { name: "Image Hunt", link: "/applications/imagehunt" },
           { name: "Puzzle Verse", link: "/applications/puzzleverse" },
           { name: "Social Quick", link: "/applications/socialquick" },
