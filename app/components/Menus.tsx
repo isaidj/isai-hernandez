@@ -15,7 +15,7 @@ import {
 } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { MousePositionComponent } from "./MousePotionElement";
-import { BackIcon } from "@/assets/Icons";
+import { BackIcon, DevIcon } from "@/assets/Icons";
 
 //create inteface of routes
 interface routes {
@@ -32,11 +32,12 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
       key={index}
       href={item.link}
       className={
-        "hover:text-blue-500  text-white font-bold ml-3" + item.link !== "/"
+        " ml-3 hover:text-blue-500" +
+        (item.link !== "/"
           ? pathname.includes(item.link)
-            ? "text-blue-500"
+            ? " text-blue-500"
             : ""
-          : ""
+          : "")
       }
       onClick={() => setIsMenuOpen(false)}
     >
@@ -50,7 +51,7 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
       onMenuOpenChange={setIsMenuOpen}
       maxWidth="full"
       // isBlurred={true}
-      className="relative rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 bg-gray-700"
+      className=" mt-9 rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 bg-gray-700 h-12 w-full sm:w-9/12 z-10"
 
       // isBordered
     >
@@ -60,12 +61,12 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
           className="sm:hidden text-white"
         /> */}
         <NavbarBrand>
-          <NavbarItem className="flex flex-row items-center">
-            <Image alt="logo" src={Logodev} width={50} />
+          <NavbarItem className="absolute flex flex-row items-center">
+            <DevIcon className="w-10 h-10 text-white" fill="white" />
             <div className="ml-2 text-zinc-300  flex flex-col ">Isaí H </div>
           </NavbarItem>
         </NavbarBrand>
-        <NavbarItem className=" flex flex-row items-center justify-end    gap-2 font-light text-zinc-200 w-full z-10  sm:justify-center">
+        <NavbarItem className=" flex flex-row items-center justify-end gap-2 font-light text-zinc-200 w-full z-10  sm:justify-center">
           {menu}
         </NavbarItem>
 
@@ -88,7 +89,7 @@ export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
       className={
         lastPath === item.link.split("/").pop()
           ? "text-amber-400 text-sm"
-          : "text-zinc-300 text-sm"
+          : "text-zinc-300 text-sm hover:text-white"
       }
       // style={
       //   lastPath === item.link.split("/").pop() ? { color: "#fbbf24" } : {}

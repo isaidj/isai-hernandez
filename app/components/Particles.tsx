@@ -124,7 +124,7 @@ export const ParticlesTriangle = () => {
       id="tsparticles"
       init={particlesInit}
       loaded={particlesLoaded}
-      className="absolute inset-0  animate-fade-in"
+      className="fixed inset-0  animate-fade-in"
       options={{
         fpsLimit: 60,
         particles: {
@@ -146,10 +146,11 @@ export const ParticlesTriangle = () => {
               enable: true,
               area: 800,
             },
+
             value: 10,
           },
           shape: {
-            type: "triangle",
+            type: "circle",
           },
           size: {
             value: 5,
@@ -164,3 +165,5 @@ export const ParticlesTriangle = () => {
     />
   );
 };
+
+export default ParticlesTriangle;

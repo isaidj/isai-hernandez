@@ -27,10 +27,12 @@ const config: Config = {
       },
       animation: {
 				"fade-in": "fade-in 3s ease-in-out forwards",
+				subTitle: "fade-in 2s ease-in-out forwards",
 				title: "title 3s ease-out forwards",
 				"fade-left": "fade-left 3s ease-in-out forwards",
 				"fade-right": "fade-right 3s ease-in-out forwards",
 				"fade-right-stay": "fade-right-stay 3s ease-in-out forwards",
+				
 			},
 			keyframes: {
 				"fade-in": {
@@ -96,12 +98,12 @@ const config: Config = {
 
 				title: {
 					"0%": {
-						"line-height": "0%",
-						"letter-spacing": "0.25em",
+						// "line-height": "0%",
+						// "letter-spacing": "0.25em",
 						opacity: "0",
 					},
 					"25%": {
-						"line-height": "0%",
+						// "line-height": "0%",
 						opacity: "0%",
 					},
 					"80%": {
@@ -109,7 +111,7 @@ const config: Config = {
 					},
 
 					"100%": {
-						"line-height": "100%",
+						// "line-height": "100%",
 						opacity: "100%",
 					},
 				},
