@@ -1,4 +1,5 @@
-import DOMPurify from "dompurify";
+// import DOMPurify from "dompurify";
+import { sanitize, isSupported } from "isomorphic-dompurify";
 export const ExtractStringByComma = (string: string) => {
   //extract string from string separated by comma
   let stringArray = string.split(",");
@@ -11,7 +12,11 @@ export const ExtractStringByComma = (string: string) => {
 // );
 export const HtmlToText = (html: string) => {
   //desinfectamos el html
-  return DOMPurify.sanitize(html, { ALLOWED_TAGS: [] });
+  // return DOMPurify.sanitize(html, { ALLOWED_TAGS: [] });
+  const clean = sanitize(html, {
+    ALLOWED_TAGS: ["b", "i", "em", "strong", "a", "p", "br"],
+  });
+  return clean;
 };
 
 export const MaxWords = (text: string, max: number) => {

@@ -22,6 +22,7 @@
     "eslint-config-next": "13.4.13",
     "fast-average-color": "^9.4.0",
     "framer-motion": "^10.16.4",
+    "isomorphic-dompurify": "^1.9.0",
     "next": "13.4.13",
     "pexels": "^1.4.0",
     "postcss": "8.4.27",

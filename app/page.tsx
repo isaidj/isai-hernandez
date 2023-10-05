@@ -10,7 +10,6 @@ import Skills, {
 import { DownIcon } from "@/assets/Icons";
 
 import HiddenElementScroll from "./components/HiddenElementScroll";
-import ScrollIndicator from "./components/ScrollIndicatorLine";
 
 const ParticlesTriangle = dynamic(() => import("./components/Particles"), {
   ssr: false, // Deshabilita el rendimiento del lado del servidor (Server-Side Rendering)
@@ -91,7 +90,6 @@ export default function Home() {
             className="flex flex-col w-full gap-4 mt-4 md:w-1/2"
           >
             <Skills skills={cloudSkills} title="Cloud" />
-            <ScrollIndicator sectionId="skills-2" title="Skills" />
           </div>
           <div
             id="other-container"
