@@ -1,9 +1,8 @@
 "use client";
-import Image from "next/image";
-import Logodev from "../../public/logodev.png";
+
 import React from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   Navbar,
   NavbarBrand,

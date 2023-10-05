@@ -6,11 +6,6 @@ import QuantitySelector from "../../components/components-assets/QuantitySelecto
 import ColorsSelector from "../../components/components-assets/ColorsSelector.jsx";
 import { FastAverageColor } from "fast-average-color";
 
-import nikeRed from "@/public/img/nikeRed.jpg";
-import nikeBlue from "@/public/img/nikeBlue.jpg";
-import nikeGreen from "@/public/img/nikeGreen.jpg";
-import nikeWhite from "@/public/img/nikeWhite.jpg";
-
 import {
   ExtractStringByComma,
   HtmlToText,
@@ -462,7 +457,8 @@ const ProductContainer = styled.div`
     /* gap: 10px; */
   }
   .quantity-btn {
-    color: #212121;
+    /* color: #212121; */
+
     width: 30px;
     height: 30px;
     border-radius: 50%;

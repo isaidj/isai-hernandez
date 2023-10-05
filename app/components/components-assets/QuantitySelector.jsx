@@ -23,7 +23,7 @@ const QuantitySelector = ({ quantity, setQuantity }) => {
           value={quantity}
         />
         <AddIcon
-          className="quantity-btn"
+          className="quantity-btn stroke-2"
           onClick={() => setQuantity(quantity + 1)}
         />
       </div>
