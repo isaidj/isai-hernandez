@@ -1,7 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-const ScrollIndicatorLine = ({ sectionId, title }) => {
+const ScrollIndicatorLine = ({
+  sectionId,
+  title,
+}: {
+  sectionId: string;
+  title: string;
+}) => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {

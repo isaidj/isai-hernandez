@@ -348,7 +348,8 @@ const ProductContainer = styled.div`
       cursor: pointer;
       transition: all 0.25s ease;
       &:hover {
-        transform: scale(1.1);
+        /* transform: scale(1.1); */
+        transform: translateY(-10px);
       }
     }
   }

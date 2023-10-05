@@ -13,7 +13,7 @@ import {
   TailwindIcon,
   VercelIcon,
 } from "@/assets/Icons";
-import ScrollIndicatorLine from "./ScrollIndicatorLine";
+
 import { useEffect, useState } from "react";
 
 interface Skill {

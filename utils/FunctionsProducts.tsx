@@ -1,5 +1,5 @@
 import DOMPurify from "dompurify";
-export const ExtractStringByComma = (string) => {
+export const ExtractStringByComma = (string: string) => {
   //extract string from string separated by comma
   let stringArray = string.split(",");
   return stringArray;
@@ -9,18 +9,18 @@ export const ExtractStringByComma = (string) => {
 //     "Albarella Dress - Mulberry Floral.webp,Albarella Dress White.webp,Albarella Dress - Kelly Green Floral.webp,Albarella Dress (1).webp,Albarella Dress.webp"
 //   )[0]
 // );
-export const HtmlToText = (html) => {
+export const HtmlToText = (html: string) => {
   //desinfectamos el html
-  return DOMPurify.sanitize(html);
+  return DOMPurify.sanitize(html, { ALLOWED_TAGS: [] });
 };
 
-export const MaxWords = (text, max) => {
+export const MaxWords = (text: string, max: number) => {
   if (text.length > max) {
     return text.substr(0, max) + "...";
   } else {
     return text;
   }
 };
-export const NumberSeparatorDot = (number) => {
+export const NumberSeparatorDot = (number: number) => {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 };
