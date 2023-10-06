@@ -247,12 +247,12 @@ const ProductContainer = styled.div`
   }
   .title-background {
     position: absolute;
-    font-size: 10rem;
+    fontsize: 10rem;
     color: rgba(255, 255, 255, 0.034);
     font-weight: 700;
     top: 50%;
     left: 0;
-    font-family: "Oswald", sans-serif;
+    fontfamily: "Oswald", sans-serif;
     line-height: 1;
     writing-mode: vertical-rl;
 
@@ -283,7 +283,7 @@ const ProductContainer = styled.div`
     position: absolute;
     top: 15px;
     right: 15px;
-    font-size: 2rem;
+    fontsize: 2rem;
     color: #2121216e;
     cursor: pointer;
     background: #fff;
@@ -306,8 +306,8 @@ const ProductContainer = styled.div`
   }
   .wattermark {
     position: absolute;
-    font-family: "Oswald", sans-serif;
-    font-size: 8rem;
+    fontfamily: "Oswald", sans-serif;
+    fontsize: 8rem;
     font-weight: 700;
     color: #ffffff11;
     bottom: 0;
@@ -384,7 +384,7 @@ const ProductContainer = styled.div`
     padding: 20px;
   }
   .price {
-    font-size: 2rem;
+    fontsize: 2rem;
     font-weight: 700;
     color: #212121;
     align-self: flex-end;
@@ -393,25 +393,25 @@ const ProductContainer = styled.div`
     margin-bottom: 0px;
   }
   .title {
-    font-family: "Oswald", sans-serif;
-    font-size: 2rem;
+    fontfamily: "Oswald", sans-serif;
+    fontsize: 2rem;
     font-weight: 700;
     color: #0a0a0a;
   }
   .desc_short {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
+    fontfamily: "Montserrat", sans-serif;
+    fontsize: 1rem;
     font-weight: 400;
     color: #212121;
   }
   .desc_long {
-    font-size: 1rem;
+    fontsize: 1rem;
     font-weight: 400;
     color: #212121;
   }
   .show-more {
     text-align: end;
-    font-size: 1rem;
+    fontsize: 1rem;
     font-weight: 700;
     color: #212121;
     cursor: pointer;
@@ -428,7 +428,7 @@ const ProductContainer = styled.div`
   }
 
   .colors-title {
-    font-size: 1rem;
+    fontsize: 1rem;
     font-weight: 700;
     color: #212121;
   }
@@ -443,7 +443,7 @@ const ProductContainer = styled.div`
     margin-bottom: 20px;
   }
   .quantity-title {
-    font-size: 1rem;
+    fontsize: 1rem;
     font-weight: 700;
     color: #212121;
   }
@@ -478,8 +478,8 @@ const ProductContainer = styled.div`
     }
   }
   .quantity-input {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.2rem;
+    fontfamily: "Montserrat", sans-serif;
+    fontsize: 1.2rem;
     font-weight: 700;
     color: #212121;
     text-align: center;
@@ -503,7 +503,7 @@ const ProductContainer = styled.div`
   .add-to-cart {
     width: 80%;
     height: 50px;
-    font-size: 1rem;
+    fontsize: 1rem;
     font-weight: 700;
     background: #212121;
     transition: all 0.3s ease;
@@ -511,7 +511,7 @@ const ProductContainer = styled.div`
   .buy-now {
     width: 50%;
     height: 50px;
-    font-size: 1rem;
+    fontsize: 1rem;
     font-weight: 700;
     margin-top: 10px;
   }

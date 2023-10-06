@@ -18,8 +18,38 @@ const chalkboard = LocalFont({
   variable: "--font-chalkboard",
 });
 export const metadata: Metadata = {
-  title: "Isaidev343",
-  description: "Web developer portfolio",
+  title: "Isai Hernandez",
+  description: `This is my personal website, where I share my projects.
+  I am a Systems Engineer, with a great passion for technology and programming.
+  Eager to design innovative solutions!`,
+  applicationName: "Isai Hernandez",
+  authors: [
+    {
+      name: "Isai Hernandez",
+      url: "https://isaihernandez.dev",
+    },
+  ],
+  keywords: [
+    "Isai",
+    "Hernandez",
+    "react",
+    "developer",
+    "software",
+    "engineer",
+    "react native",
+    "css",
+    "html",
+    "javascript",
+    "typescript",
+    "nextjs",
+    "nodejs",
+    "express",
+    "mysql",
+  ],
+  classification: "Software Engineer",
+  creator: "Isai Hernandez",
+  publisher: "Isai Hernandez",
+  viewport: "width=device-width, initial-scale=1.0",
 };
 
 export default function RootLayout({

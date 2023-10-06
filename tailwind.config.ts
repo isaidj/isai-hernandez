@@ -99,7 +99,7 @@ const config: Config = {
 				title: {
 					"0%": {
 						// "line-height": "0%",
-						// "letter-spacing": "0.25em",
+						// "fillRuleletterSpacing": "0.25em",
 						opacity: "0",
 					},
 					"25%": {

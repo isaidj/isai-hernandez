@@ -1,146 +1,28 @@
 "use client";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import Puzzle from "../../public/img/puzzle.png";
-import ImageHunt from "../../public/img/imagehunt.png";
-import Landing from "../../public/img/landing.png";
-import logoAuditoria from "../../public/img/logoAuditoria.webp";
-import logogscanner from "../../public/img/logogscanner.webp";
+import Link from "next/link";
+import { routes } from "./routes";
 import Image, { StaticImageData } from "next/image";
-import {
-  ElectronIcon,
-  ExpoIcon,
-  ExpoV2Icon,
-  MantineIcon,
-  NextJsIcon,
-  PythonIcon,
-  ReactIcon,
-  ReactIconV2,
-  StyledComponentsIcon,
-  TailwindIcon,
-} from "@/assets/Icons";
-interface routes {
-  name: string;
-  link: string;
-  image: StaticImageData | string;
-  carrusel?: boolean;
-  tools?: React.ReactNode[];
-}
-const classNameIcons = "w-5 h-5 md:w-7 md:h-7";
-const routes: routes[] = [
-  {
-    name: "Nike Cyberpunk",
-    link: "/applications/product",
-    image:
-      "screenNikeBLue.webp,screenNikeGreen.webp,screenNikeRed.webp,screenNikeWhite.webp",
-    carrusel: true,
-    tools: [
-      <ReactIcon className={" fill-sky-500 " + classNameIcons} id="react" />,
-      <StyledComponentsIcon className={classNameIcons} />,
-    ],
-  },
-  {
-    name: "Image Hunt",
-    link: "/applications/imagehunt",
-    image: ImageHunt,
-    carrusel: false,
-    tools: [
-      <NextJsIcon className={classNameIcons} />,
-      <ReactIcon className={" fill-sky-500 " + classNameIcons} id="react" />,
-      <TailwindIcon className={classNameIcons} />,
-    ],
-  },
-  {
-    name: "Puzzle Verse",
-    link: "/applications/puzzleverse",
-    image: Puzzle,
-    carrusel: false,
-    tools: [
-      <ReactIcon className={" fill-sky-500 " + classNameIcons} id="react" />,
-      <TailwindIcon className={classNameIcons} />,
-    ],
-  },
-  {
-    name: "Social Quick",
-    link: "/applications/socialquick",
-    image: Landing,
-    carrusel: false,
-    tools: [
-      <ReactIcon className={" fill-sky-500 " + classNameIcons} id="react" />,
-      <TailwindIcon className={classNameIcons} />,
-    ],
-  },
-  {
-    name: "Auditoria - Mobile",
-    link: "https://play.google.com/store/apps/details?id=com.audimovilv2",
-    image: logoAuditoria,
-    carrusel: false,
-    tools: [<ReactIconV2 className={classNameIcons} />],
-  },
-  {
-    name: "G-Scanner - Mobile",
-    link: "https://play.google.com/store/apps/details?id=com.isaidj.automatescanapp",
-    image: logogscanner,
-    carrusel: false,
-    tools: [
-      <div className="flex flex-row ">
-        <ExpoV2Icon className={" fill-white " + classNameIcons} />
-        <ExpoIcon className={" fill-white " + classNameIcons} />
-      </div>,
-      <ElectronIcon className={" fill-teal-300 " + classNameIcons} />,
-      <PythonIcon className={classNameIcons} />,
-    ],
-  },
-  {
-    name: "Auditoria - Web",
-    link: "https://play.google.com/store/apps/details?id=com.audimovilv2",
-    image: logoAuditoria,
-    carrusel: false,
-    tools: [
-      <ReactIcon className={classNameIcons} />,
-      <MantineIcon className={classNameIcons} />,
-      <StyledComponentsIcon className={classNameIcons} />,
-    ],
-  },
-];
+import { ArrowDownIcon } from "@/assets/Icons";
+
 const urls3images = "https://tecnofacil.s3.amazonaws.com/";
 const Page = () => {
   return (
     <div
       id="applications"
-      className="flex min-h-screen  flex-col  items-center pt-3 sm:p-24 sm:pt-9 relative bg-gradient-to-r from-black via-gray-900 to-black gap-4"
+      className="flex min-h-screen  flex-col  items-center pt-3 sm:px-0 sm:pt-28 relative bg-gradient-to-r from-black via-gray-900 to-black gap-4"
     >
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="sr-only">Products</h2>
 
-        <div className=" grid grid-cols-1 flex-col items-end gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8  ">
+        {/* <div className=" grid grid-cols-1 flex-col items-end gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8  ">
           {routes.map((route) => (
-            <Link href={route.link} key={route.name} className="group">
-              <div className="flex items-center aspect-square   w-full h-auto overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                {route.carrusel ? (
-                  <Carrousell
-                    images={
-                      typeof route.image === "string"
-                        ? route.image.split(",")
-                        : [route.image]
-                    }
-                  />
-                ) : (
-                  <Image
-                    src={route.image}
-                    alt={route.name}
-                    className="h-80 w-full object-cover aspect-square  group-hover:opacity-75  "
-                  />
-                )}
-              </div>
-              {route.tools && (
-                <div className="flex flex-row gap-2 mt-2">
-                  {route.tools.map((tool) => tool)}
-                </div>
-              )}
-              <h3 className="mt-4 ml-4 text-sm text-gray-500">{route.name}</h3>
-              {/* <p className="mt-1 text-lg font-medium text-gray-900">New tab</p> */}
-            </Link>
+            <LinkRoute route={route} key={route.name} />
+          ))}
+        </div> */}
+        <div className="flex flex-row flex-wrap justify-center gap-4 gap-y-10">
+          {routes.map((route) => (
+            <LinkRoute route={route} key={route.name} />
           ))}
         </div>
       </div>
@@ -150,16 +32,16 @@ const Page = () => {
 
 export default Page;
 
-const Carrousell = ({ images }: { images: string[] }) => {
-  console.log(images);
+const Carrousell = ({ images }: { images: string[] | StaticImageData[] }) => {
+  // console.log(images);
   const [current, setCurrent] = useState(0);
   const length = images.length;
-  const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1);
-  };
-  const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
-  };
+  // const nextSlide = () => {
+  //   setCurrent(current === length - 1 ? 0 : current + 1);
+  // };
+  // const prevSlide = () => {
+  //   setCurrent(current === 0 ? length - 1 : current - 1);
+  // };
   if (!Array.isArray(images) || images.length <= 0) {
     return null;
   }
@@ -174,9 +56,93 @@ const Carrousell = ({ images }: { images: string[] }) => {
     <Image
       src={urls3images + images[current]}
       alt="images"
-      className="h-80 w-full object-cover aspect-square  group-hover:opacity-75  "
+      className="h-80 w-full object-cover aspect-square  hover:opacity-75  "
       width={800}
       height={800}
     />
+  );
+};
+
+const LinkRoute = ({ route }: { route: routes }) => {
+  const [isOpened, setIsOpened] = useState(false);
+  return (
+    <div className={`group flex flex-col md:flex-row }`}>
+      <div className="">
+        <Link
+          href={route.link}
+          className="relative flex items-center aspect-square w-full h-auto overflow-hidden rounded-lg bg-black xl:aspect-h-8 xl:aspect-w-7"
+        >
+          {route.video ? (
+            <div className="w-80 h-80 bg-black flex justify-start items-start">
+              <video
+                autoPlay
+                muted
+                loop
+                className="w-full  bg-black min-h-full min-w-full object-cover"
+              >
+                <source src={route.video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          ) : route.carrusel ? (
+            <Carrousell
+              images={
+                typeof route.image === "string"
+                  ? route.image.split(",")
+                  : [route.image]
+              }
+              key={route.name}
+            />
+          ) : (
+            <Image
+              src={route.image}
+              alt={route.name}
+              className="h-80 w-full object-cover aspect-square  hover:opacity-90 transition-opacity duration-75 ease-in-out "
+            />
+          )}
+          {route.platforms && (
+            <div className="absolute bottom-0 right-0 flex flex-row gap-2 bg-gray-900 bg-opacity-70 px-2 rounded-l-sm">
+              {route.platforms.map((platform, index) => (
+                <div key={route.name + index}>{platform}</div>
+              ))}
+            </div>
+          )}
+        </Link>
+        <div className="relative" onClick={() => setIsOpened(!isOpened)}>
+          {route.tools && (
+            <div className="flex flex-row gap-2 mt-2">
+              {route.tools.map((tool, index) => (
+                <div key={route.name + index}>{tool}</div>
+              ))}
+            </div>
+          )}
+          <div className="flex flex-row justify-between w-full cursor-pointer select-none">
+            <h3 className="mt-4 ml-4 text-sm text-gray-500">{route.name}</h3>
+            <div className="absolute right-0 top-1/2">
+              <ArrowDownIcon
+                className={`w-7 h-7   md:w-6 md:h-6  text-gray-500 group-hover:text-gray-400 transition-all duration-200 ${
+                  isOpened && "-rotate-90"
+                }`}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className={`flex w-80 m-3 flex-col gap-2 transition-all duration-200 max-w-xs ${
+          isOpened ? "w-full" : "hidden"
+        } `}
+      >
+        <h3 className="text-lg font-semibold text-gray-200">{route.name}</h3>
+        <p className="text-sm text-gray-500">{route.description}</p>
+        <div className="flex justify-center mt-4">
+          <Link href={route.link}>
+            <button className="bg-gray-900 hover:bg-gray-800 text-gray-100 px-4 py-2 rounded-md">
+              Preview
+            </button>
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 };

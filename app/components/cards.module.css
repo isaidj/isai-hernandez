@@ -12,7 +12,7 @@
 }
 
 .tendencias {
-  font-size: 20px;
+  fontsize: 20px;
 }
 
 .tendencias h4 {
@@ -23,19 +23,19 @@
   margin: 10px;
   margin-left: 15px;
   cursor: pointer;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  fontfamily: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  transition: color 0.4s, font-size 0.4s;
+  transition: color 0.4s, fontSize 0.4s;
 }
 
 .tendencias label:hover {
   color: #277cf3;
-  font-size: 18px;
+  fontsize: 18px;
 }
 
 .logoTitulo {
   width: auto;
-  font-size: 35px;
+  fontsize: 35px;
 }
 .containerContet {
   display: flex;
@@ -56,10 +56,10 @@
     -moz-column-count: 1;
   }
   .tendencias {
-    font-size: 14px;
+    fontsize: 14px;
   }
   .logoTitulo {
-    font-size: 13px;
+    fontsize: 13px;
   }
 
   .containerContet Input {

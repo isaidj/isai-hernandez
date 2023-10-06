@@ -27,7 +27,7 @@
 
 /* new font */
 @font-face {
-  font-family: "Chalkboard.ttf";
+  fontfamily: "Chalkboard.ttf";
   src: url("Chalkboard.ttf");
 }
 

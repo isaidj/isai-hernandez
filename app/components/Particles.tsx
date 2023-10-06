@@ -124,7 +124,7 @@ export const ParticlesTriangle = () => {
       id="tsparticles"
       init={particlesInit}
       loaded={particlesLoaded}
-      className="fixed inset-0  animate-fade-in"
+      className="absolute inset-0  animate-fade-in"
       options={{
         fpsLimit: 60,
         particles: {

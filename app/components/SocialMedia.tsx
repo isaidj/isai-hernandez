@@ -19,7 +19,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ id, href, icon }) => {
       className="w-8 h-8 text-white relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => setTimeout(() => setIsHovered(false), 1000)}
+      onClick={() => setTimeout(() => setIsHovered(false))}
     >
       {icon}
       <div
