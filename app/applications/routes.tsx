@@ -41,20 +41,31 @@ export const routes: routes[] = [
       "screenNikeBLue.webp,screenNikeGreen.webp,screenNikeRed.webp,screenNikeWhite.webp",
     carrusel: true,
     tools: [
-      <ReactIcon className={" fill-sky-500 " + classNameIcons} id="react" />,
-      <StyledComponentsIcon className={classNameIcons} />,
+      <ReactIcon
+        key="react"
+        className={" fill-sky-500 " + classNameIcons}
+        id="react"
+      />,
+      <StyledComponentsIcon
+        key="styled-components"
+        className={classNameIcons}
+      />,
     ],
   },
   {
     name: "Image Hunt",
     link: "/applications/imagehunt",
     description:
-      "Tis projext is a platform to search images, it was made with NextJS, Tailwind CSS, and React.",
+      "This project is a platform to search images, it was made with NextJS, Tailwind CSS, and React.",
     image: ImageHunt,
     tools: [
-      <NextJsIcon className={classNameIcons} />,
-      <ReactIcon className={" fill-sky-500 " + classNameIcons} id="react" />,
-      <TailwindIcon className={classNameIcons} />,
+      <NextJsIcon key="next-js" className={classNameIcons} />,
+      <ReactIcon
+        key="react"
+        className={" fill-sky-500 " + classNameIcons}
+        id="react"
+      />,
+      <TailwindIcon key="tailwind" className={classNameIcons} />,
     ],
   },
   {
@@ -62,8 +73,12 @@ export const routes: routes[] = [
     link: "/applications/puzzleverse",
     image: Puzzle,
     tools: [
-      <ReactIcon className={" fill-sky-500 " + classNameIcons} id="react" />,
-      <TailwindIcon className={classNameIcons} />,
+      <ReactIcon
+        key="react"
+        className={" fill-sky-500 " + classNameIcons}
+        id="react"
+      />,
+      <TailwindIcon key="tailwind" className={classNameIcons} />,
     ],
   },
   {
@@ -71,25 +86,32 @@ export const routes: routes[] = [
     link: "/applications/socialquick",
     image: Landing,
     tools: [
-      <ReactIcon className={" fill-sky-500 " + classNameIcons} id="react" />,
-      <TailwindIcon className={classNameIcons} />,
+      <ReactIcon
+        key="react"
+        className={" fill-sky-500 " + classNameIcons}
+        id="react"
+      />,
+      <TailwindIcon key="tailwind" className={classNameIcons} />,
     ],
   },
   {
     name: "Auditoria - Mobile App",
     link: "https://play.google.com/store/apps/details?id=com.audimovilv2",
     image: logoAuditoria,
-    tools: [<ReactIconV2 className={classNameIcons} />],
-    platforms: [<AndroidIcon className={classNameIcons} />],
+    tools: [<ReactIconV2 key="react-v2" className={classNameIcons} />],
+    platforms: [<AndroidIcon key="android" className={classNameIcons} />],
   },
   {
     name: "Auditoria - Web",
     link: "https://play.google.com/store/apps/details?id=com.audimovilv2",
     image: logoAuditoria,
     tools: [
-      <ReactIcon className={classNameIcons} />,
-      <MantineIcon className={classNameIcons} />,
-      <StyledComponentsIcon className={classNameIcons} />,
+      <ReactIcon key="react" className={classNameIcons} />,
+      <MantineIcon key="mantine" className={classNameIcons} />,
+      <StyledComponentsIcon
+        key="styled-components"
+        className={classNameIcons}
+      />,
     ],
   },
   {
@@ -97,16 +119,19 @@ export const routes: routes[] = [
     link: "https://g-scanner-aca2i6mp6-isaidj.vercel.app/",
     image: logogscanner,
     tools: [
-      <div className="flex flex-row ">
+      <div key="expo-icons" className="flex flex-row ">
         <ExpoV2Icon className={" fill-white " + classNameIcons} />
         <ExpoIcon className={" fill-white " + classNameIcons} />
       </div>,
-      <ElectronIcon className={" fill-teal-300 " + classNameIcons} />,
-      <PythonIcon className={classNameIcons} />,
+      <ElectronIcon
+        key="electron"
+        className={" fill-teal-300 " + classNameIcons}
+      />,
+      <PythonIcon key="python" className={classNameIcons} />,
     ],
     platforms: [
-      <AndroidIcon className={classNameIcons} />,
-      <AppleIcon className={classNameIcons} />,
+      <AndroidIcon key="android" className={classNameIcons} />,
+      <AppleIcon key="apple" className={classNameIcons} />,
     ],
   },
   {
@@ -114,11 +139,13 @@ export const routes: routes[] = [
     link: "https://dreasons.com/",
     video: "https://tecnofacil.s3.amazonaws.com/dreasonsvideo.mp4",
     image: dresons,
-
     tools: [
-      <NextJsIcon className={classNameIcons} />,
-      <StyledComponentsIcon className={classNameIcons} />,
-      <MantineIcon className={classNameIcons} />,
+      <NextJsIcon key="next-js" className={classNameIcons} />,
+      <StyledComponentsIcon
+        key="styled-components"
+        className={classNameIcons}
+      />,
+      <MantineIcon key="mantine" className={classNameIcons} />,
     ],
   },
 ];

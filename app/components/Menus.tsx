@@ -28,10 +28,10 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
   const pathname = usePathname();
   const menu = routes.map((item, index) => (
     <Link
-      key={index}
+      key={item.name} // Utiliza la URL de la ruta como clave
       href={item.link}
       className={
-        " ml-3 hover:text-blue-500" +
+        "ml-3 hover:text-blue-500" +
         (item.link !== "/"
           ? pathname.includes(item.link)
             ? " text-blue-500"

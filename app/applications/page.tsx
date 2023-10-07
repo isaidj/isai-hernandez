@@ -36,27 +36,25 @@ const Carrousell = ({ images }: { images: string[] | StaticImageData[] }) => {
   // console.log(images);
   const [current, setCurrent] = useState(0);
   const length = images.length;
-  // const nextSlide = () => {
-  //   setCurrent(current === length - 1 ? 0 : current + 1);
-  // };
-  // const prevSlide = () => {
-  //   setCurrent(current === 0 ? length - 1 : current - 1);
-  // };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prevCurrent) =>
+        prevCurrent === length - 1 ? 0 : prevCurrent + 1
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [current, length]);
+
   if (!Array.isArray(images) || images.length <= 0) {
     return null;
   }
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent(current === length - 1 ? 0 : current + 1);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [current]);
 
   return (
     <Image
       src={urls3images + images[current]}
       alt="images"
-      className="h-80 w-full object-cover aspect-square  hover:opacity-75  "
+      className="h-80 w-full object-cover aspect-square hover:opacity-75"
       width={800}
       height={800}
     />
