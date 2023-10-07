@@ -1,4 +1,19 @@
-export const productMockup = {
+import { StaticImageData } from "next/image";
+import nikeBlue from "../assets/product/nikeBlue.jpg";
+import nikeGreen from "../assets/product/nikeGreen.jpg";
+import nikeRed from "../assets/product/nikeRed.jpg";
+import nikeWhite from "../assets/product/nikeWhite.jpg";
+import nikeBlack from "../assets/product/nikeBlack.jpg";
+interface ProductMockup {
+  id: number;
+  name_prod: string;
+  desc_short: string;
+  desc_long: string;
+  img: StaticImageData[];
+  price: number;
+  colors: string;
+}
+export const productMockup: ProductMockup = {
   id: 1,
   name_prod: "Cityscape Style: Nike's Ultrawide Cyberpunk Boots Unleashed",
   desc_short:
@@ -10,7 +25,7 @@ The upper of each pair of Nike Ultrawide Modern Cyberpunk Boots boasts a texture
 With a design that merges the cyberpunk aesthetic with cutting-edge technology, these boots will transport you to a world where fashion and functionality harmoniously coexist. Metallic accents, thoughtfully integrated into the design, catch and reflect light, creating a captivating visual effect.
 
 Join the fashion revolution and step into a future where your every stride sets the trend. Discover the perfect fusion of urban, tech, and elegance, all wrapped up in a pair of Nike Ultrawide Modern Cyberpunk Boots. Nike invites you to take the step into the future with Ultrawide Modern Cyberpunk Boots.</p>`,
-  img: "nikeRed.jpg,nikeWhite.jpg,nikeGreen.jpg,nikeBlue.jpg,nikeRed.jpg,nikeWhite.jpg,nikeGreen.jpg,nikeBlue.jpg,nikeRed.jpg,nikeWhite.jpg,nikeGreen.jpg,nikeBlue.jpg",
+  img: [nikeBlue, nikeGreen, nikeRed, nikeWhite, nikeBlack],
   price: 1000,
   colors: "#f89083,#ffffff,#87f8a3,#8ee3f8",
 };

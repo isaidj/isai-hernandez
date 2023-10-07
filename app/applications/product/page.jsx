@@ -15,7 +15,7 @@ import {
 import { ShareIcon } from "@/assets/Icons.tsx";
 import { productMockup } from "@/utils/mockupProduct.tsx";
 
-const urls3images = "https://tecnofacil.s3.amazonaws.com/";
+// const urls3images = "https://tecnofacil.s3.amazonaws.com/";
 const Product = () => {
   const [product, setProduct] = useState(productMockup);
   const mainImageRef = useRef(null);
@@ -29,30 +29,21 @@ const Product = () => {
   const [fontColor, setFontColor] = useState(null);
   // console.log(location);
 
-  const getAverageColor = (imgurl) => {
-    const image = new Image();
-    // console.log(image);
-    //replace https with http
-    image.src = imgurl.replace("https", "https");
-    //from all origins
-
-    image.crossOrigin = "Anonymous";
-
+  const getAverageColor = () => {
+    //get average from image, not url
     const fac = new FastAverageColor();
-    //wait for the image to load and then get the average color
-    image.onload = () => {
-      fac
-        .getColorAsync(image)
-        .then((color) => {
-          // console.log(color);
-          setAverageColorGradient(color.rgba);
-          CalFontColor(color.rgba, 90);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    };
+    fac
+      .getColorAsync(mainImage.src)
+      .then((color) => {
+        // console.log(color);
+        setAverageColorGradient(color.rgba);
+        CalFontColor(color.rgba, 90);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
+
   const CalFontColor = (rgba, luminanceValue = 100) => {
     //convert rgba to object
     const rgb = {
@@ -76,21 +67,23 @@ const Product = () => {
 
   const imageViewsHandler = (e) => {
     if (mainImage === e) {
-      setMainImage(urls3images + ExtractStringByComma(product.img)[0]);
+      setMainImage(mainImage);
     } else {
       setMainImage(e);
     }
   };
 
   useEffect(() => {
-    getAverageColor(mainImage);
+    if (mainImage) {
+      getAverageColor();
+    }
   }, [mainImage]);
   //if product is not empty
   useEffect(() => {
     if (product) {
       // console.log(product);
       setProduct(product);
-      setMainImage(urls3images + ExtractStringByComma(product.img)[0]);
+      setMainImage(product.img[0]);
     }
   }, [product]);
   useEffect(() => {
@@ -127,8 +120,8 @@ const Product = () => {
             <ShareIcon className="w-8 h-8 share-icon" />
             <div className="principal-image-container">
               <motion.img
-                src={mainImage}
-                alt={ExtractStringByComma(product.img)[0]}
+                src={mainImage.src}
+                alt={product.name_prod}
                 className="principal-img"
                 id="principalImage"
                 ref={mainImageRef}
@@ -142,13 +135,13 @@ const Product = () => {
               <span className="wattermark">{product.name_prod}</span>
             </div>
             <div id="images" className="images">
-              {ExtractStringByComma(product.img).map((e, i) => {
+              {product.img.map((e, i) => {
                 return (
                   <motion.img
-                    src={urls3images + e}
+                    src={e.src}
                     alt="drone"
                     key={i}
-                    onClick={(e) => imageViewsHandler(e.target.src)}
+                    onClick={() => imageViewsHandler(e)}
                   />
                 );
               })}
@@ -315,8 +308,6 @@ const ProductContainer = styled.div`
     display: flex;
     overflow-x: scroll;
     overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
 
     width: 100%;
     height: auto;
