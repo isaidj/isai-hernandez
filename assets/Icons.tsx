@@ -533,10 +533,10 @@ export const DownIcon = ({
     <path
       id="primary-stroke"
       d="M3.59,13.48,5.43,11a1,1,0,0,1,1.36-.23L9,12.27v-8a1,1,0,0,1,1-1h4a1,1,0,0,1,1,1v8l2.21-1.48a1,1,0,0,1,1.36.23l1.84,2.46a1,1,0,0,1-.19,1.39l-7.61,5.92a1,1,0,0,1-1.22,0L3.78,14.87A1,1,0,0,1,3.59,13.48Z"
-      // style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; strokeWidth: 2;"
+      // style="fill: none; stroke: rgb(0, 0, 0); strokeLinecap: round; stroke-linejoin: round; strokeWidth: 2;"
       fill="none"
       stroke="white"
-      stroke-linecap="round"
+      strokeLinecap="round"
       stroke-linejoin="round"
       strokeWidth="2"
       {...pathPropsV2}
@@ -614,13 +614,13 @@ export const ShareIcon = (props: React.SVGProps<SVGSVGElement>) => (
       d="M14 6.5L9 10"
       stroke="#1C274C"
       strokeWidth="1.5"
-      stroke-linecap="round"
+      strokeLinecap="round"
     />
     <path
       d="M14 17.5L9 14"
       stroke="#1C274C"
       strokeWidth="1.5"
-      stroke-linecap="round"
+      strokeLinecap="round"
     />
     <path
       d="M19 18.5C19 19.8807 17.8807 21 16.5 21C15.1193 21 14 19.8807 14 18.5C14 17.1193 15.1193 16 16.5 16C17.8807 16 19 17.1193 19 18.5Z"
@@ -648,13 +648,13 @@ export const AddIcon = (props: React.SVGProps<SVGSVGElement>) => (
       d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15"
       stroke="#212121"
       strokeWidth="2"
-      stroke-linecap="round"
+      strokeLinecap="round"
     />
     <path
       d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7"
       stroke="#212121"
       strokeWidth="2"
-      stroke-linecap="round"
+      strokeLinecap="round"
     />
   </svg>
 );

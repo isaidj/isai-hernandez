@@ -13,22 +13,8 @@ import {
   NumberSeparatorDot,
 } from "@/utils/FunctionsProducts.tsx";
 import { ShareIcon } from "@/assets/Icons.tsx";
-const productMockup = {
-  id: 1,
-  name_prod: "Cityscape Style: Nike's Ultrawide Cyberpunk Boots Unleashed",
-  desc_short:
-    "Discover the future of fashion with Nike Ultrawide Modern Cyberpunk Boots. Cutting-edge style meets technology in these stunning booties. Join the fashion revolution!",
-  desc_long: `<p>Immerse yourself in the world of future fashion with Nike Ultrawide Modern Cyberpunk Boots. These booties are more than just footwear; they are a style statement and an ode to innovation. Crafted with precision, they feature a blend of cutting-edge materials, including durable synthetic microfibers and lightweight, breathable mesh.
+import { productMockup } from "@/utils/mockupProduct.tsx";
 
-The upper of each pair of Nike Ultrawide Modern Cyberpunk Boots boasts a textured microfiber construction that not only enhances their aesthetic appeal but also ensures long-lasting durability. This, coupled with a reinforced sole made from high-quality rubber, provides an exceptional grip on various terrains.
-
-With a design that merges the cyberpunk aesthetic with cutting-edge technology, these boots will transport you to a world where fashion and functionality harmoniously coexist. Metallic accents, thoughtfully integrated into the design, catch and reflect light, creating a captivating visual effect.
-
-Join the fashion revolution and step into a future where your every stride sets the trend. Discover the perfect fusion of urban, tech, and elegance, all wrapped up in a pair of Nike Ultrawide Modern Cyberpunk Boots. Nike invites you to take the step into the future with Ultrawide Modern Cyberpunk Boots.</p>`,
-  img: "nikeRed.jpg,nikeWhite.jpg,nikeGreen.jpg,nikeBlue.jpg,nikeRed.jpg,nikeWhite.jpg,nikeGreen.jpg,nikeBlue.jpg,nikeRed.jpg,nikeWhite.jpg,nikeGreen.jpg,nikeBlue.jpg",
-  price: 1000,
-  colors: "#f89083,#ffffff,#87f8a3,#8ee3f8",
-};
 const urls3images = "https://tecnofacil.s3.amazonaws.com/";
 const Product = () => {
   const [product, setProduct] = useState(productMockup);
@@ -47,7 +33,7 @@ const Product = () => {
     const image = new Image();
     // console.log(image);
     //replace https with http
-    image.src = imgurl.replace("https", "http");
+    image.src = imgurl.replace("https", "https");
     //from all origins
 
     image.crossOrigin = "Anonymous";
@@ -247,12 +233,12 @@ const ProductContainer = styled.div`
   }
   .title-background {
     position: absolute;
-    fontsize: 10rem;
+    font-size: 10rem;
     color: rgba(255, 255, 255, 0.034);
     font-weight: 700;
     top: 50%;
     left: 0;
-    fontfamily: "Oswald", sans-serif;
+    font-family: "Oswald", sans-serif;
     line-height: 1;
     writing-mode: vertical-rl;
 
@@ -283,7 +269,7 @@ const ProductContainer = styled.div`
     position: absolute;
     top: 15px;
     right: 15px;
-    fontsize: 2rem;
+    font-size: 2rem;
     color: #2121216e;
     cursor: pointer;
     background: #fff;
@@ -306,8 +292,8 @@ const ProductContainer = styled.div`
   }
   .wattermark {
     position: absolute;
-    fontfamily: "Oswald", sans-serif;
-    fontsize: 8rem;
+    font-family: "Oswald", sans-serif;
+    font-size: 8rem;
     font-weight: 700;
     color: #ffffff11;
     bottom: 0;
@@ -370,8 +356,8 @@ const ProductContainer = styled.div`
     justify-content: space-around;
     box-shadow: -10px -10px 20px 20px #00000023;
     //blur
-    /* backdrop-filter: blur(10px) saturate(100%); */
-    /* -webkit-backdrop-filter: blur(10px) saturate(100%); */
+    backdrop-filter: blur(10px) saturate(100%);
+    -webkit-backdrop-filter: blur(10px) saturate(100%);
     border-radius: 10px;
 
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -384,7 +370,7 @@ const ProductContainer = styled.div`
     padding: 20px;
   }
   .price {
-    fontsize: 2rem;
+    font-size: 2rem;
     font-weight: 700;
     color: #212121;
     align-self: flex-end;
@@ -393,25 +379,25 @@ const ProductContainer = styled.div`
     margin-bottom: 0px;
   }
   .title {
-    fontfamily: "Oswald", sans-serif;
-    fontsize: 2rem;
+    font-family: "Oswald", sans-serif;
+    font-size: 2rem;
     font-weight: 700;
     color: #0a0a0a;
   }
   .desc_short {
-    fontfamily: "Montserrat", sans-serif;
-    fontsize: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
     font-weight: 400;
     color: #212121;
   }
   .desc_long {
-    fontsize: 1rem;
+    font-size: 1rem;
     font-weight: 400;
     color: #212121;
   }
   .show-more {
     text-align: end;
-    fontsize: 1rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #212121;
     cursor: pointer;
@@ -428,7 +414,7 @@ const ProductContainer = styled.div`
   }
 
   .colors-title {
-    fontsize: 1rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #212121;
   }
@@ -443,7 +429,7 @@ const ProductContainer = styled.div`
     margin-bottom: 20px;
   }
   .quantity-title {
-    fontsize: 1rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #212121;
   }
@@ -478,8 +464,8 @@ const ProductContainer = styled.div`
     }
   }
   .quantity-input {
-    fontfamily: "Montserrat", sans-serif;
-    fontsize: 1.2rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #212121;
     text-align: center;
@@ -503,7 +489,7 @@ const ProductContainer = styled.div`
   .add-to-cart {
     width: 80%;
     height: 50px;
-    fontsize: 1rem;
+    font-size: 1rem;
     font-weight: 700;
     background: #212121;
     transition: all 0.3s ease;
@@ -511,7 +497,7 @@ const ProductContainer = styled.div`
   .buy-now {
     width: 50%;
     height: 50px;
-    fontsize: 1rem;
+    font-size: 1rem;
     font-weight: 700;
     margin-top: 10px;
   }
