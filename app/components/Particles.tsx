@@ -146,10 +146,11 @@ export const ParticlesTriangle = () => {
               enable: true,
               area: 800,
             },
+
             value: 10,
           },
           shape: {
-            type: "triangle",
+            type: "circle",
           },
           size: {
             value: 5,
@@ -164,3 +165,5 @@ export const ParticlesTriangle = () => {
     />
   );
 };
+
+export default ParticlesTriangle;

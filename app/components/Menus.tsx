@@ -1,9 +1,8 @@
 "use client";
-import Image from "next/image";
-import Logodev from "../../public/logodev.png";
+
 import React from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   Navbar,
   NavbarBrand,
@@ -13,6 +12,9 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/react";
+import { useEffect, useState } from "react";
+import { MousePositionComponent } from "./MousePotionElement";
+import { BackIcon, DevIcon } from "@/assets/Icons";
 
 //create inteface of routes
 interface routes {
@@ -22,52 +24,52 @@ interface routes {
 
 export const MainMenu = ({ routes }: { routes: routes[] }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
   const pathname = usePathname();
   const menu = routes.map((item, index) => (
     <Link
-      key={index}
+      key={item.name} // Utiliza la URL de la ruta como clave
       href={item.link}
       className={
-        "hover:text-blue-500  text-white font-bold ml-3" + item.link !== "/"
+        "ml-3 hover:text-blue-500" +
+        (item.link !== "/"
           ? pathname.includes(item.link)
-            ? "text-blue-500"
+            ? " text-blue-500"
             : ""
-          : ""
+          : "")
       }
       onClick={() => setIsMenuOpen(false)}
     >
       {item.name}
     </Link>
   ));
+
   return (
     <Navbar
       position="static"
       onMenuOpenChange={setIsMenuOpen}
       maxWidth="full"
       // isBlurred={true}
-      className="rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 bg-gray-700"
+      className="mt-9 rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 bg-gray-700 h-12 w-full sm:w-9/12 z-10"
 
       // isBordered
     >
       <NavbarContent>
-        <NavbarMenuToggle
+        {/* <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden text-white"
-        />
+        /> */}
         <NavbarBrand>
-          <NavbarItem className="flex flex-row items-center">
-            <Image alt="logo" src={Logodev} width={50} />
+          <NavbarItem className="absolute flex flex-row items-center">
+            <DevIcon className="w-10 h-10 text-white" fill="white" />
             <div className="ml-2 text-zinc-300  flex flex-col ">Isaí H </div>
           </NavbarItem>
         </NavbarBrand>
-        <NavbarItem
-          className="hidden sm:flex flex-row items-center  gap-2 font-light text-zinc-200 justify-center w-full z-10
-        "
-        >
+        <NavbarItem className=" flex flex-row items-center justify-end gap-2 font-light text-zinc-200 w-full z-10  sm:justify-center">
           {menu}
         </NavbarItem>
 
-        <NavbarMenu>{menu}</NavbarMenu>
+        {/* <NavbarMenu>{menu}</NavbarMenu> */}
       </NavbarContent>
     </Navbar>
   );
@@ -75,13 +77,23 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
 export default MainMenu;
 
 export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
-  const pathname = usePathname();
-  console.log(pathname);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const lastPath = usePathname().split("/").pop();
+  // console.log(lastPath);
+
   const menu = routes.map((item, index) => (
     <Link
       key={index}
       href={item.link}
-      className={pathname.includes(item.link) ? "text-blue-500" : ""}
+      className={
+        lastPath === item.link.split("/").pop()
+          ? "text-amber-400 text-sm"
+          : "text-zinc-300 text-sm hover:text-white"
+      }
+      // style={
+      //   lastPath === item.link.split("/").pop() ? { color: "#fbbf24" } : {}
+      // }
+      onClick={() => setIsMenuOpen(false)}
     >
       {item.name}
     </Link>
@@ -89,17 +101,31 @@ export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
   return (
     <Navbar
       isBordered
-      className=" rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 bg-gray-700 m-0 p-0 z-10"
+      className="relative flex justify-center  w-full p-0 z-10 h-8 self-center bg-black"
+      height="2rem"
+      position="sticky"
+      isMenuOpen={isMenuOpen}
     >
-      <NavbarContent className=" text-white font-bold w-full p-0 m-0 ">
+      <Link href="/" className="h-full">
+        <BackIcon className=" absolute fill-zinc-300 w-6 h-full ml-2 hover:fill-amber-400 cursor-pointer" />
+      </Link>
+
+      <NavbarMenuToggle
+        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        className="sm:hidden text-white h-14 self-center"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      />
+      <NavbarContent className="hidden text-white  w-full p-0 m-0  sm:flex ">
         <NavbarItem
           className=" hidden sm:flex flex-row items-center justify-center gap-4 w-full 
         "
         >
           {menu}
         </NavbarItem>
-        {/* 
-        <NavbarMenu>{menu}</NavbarMenu> */}
+
+        <NavbarMenu className="flex flex-col items-center justify-center gap-4 w-full bg-black opacity-90">
+          {menu}
+        </NavbarMenu>
       </NavbarContent>
     </Navbar>
   );
@@ -117,7 +143,6 @@ export const Bradcrumb = () => {
   );
 };
 
-import { useEffect, useState } from "react";
 interface Breadcrumb {
   breadcrumb: string;
   href: string;

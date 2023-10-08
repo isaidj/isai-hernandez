@@ -8,16 +8,17 @@ import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import styles from "../../components/cards.module.css";
 import { SearchIcon } from "../../../assets/Icons";
-import Tendencias from "../../components/Tendencias";
+import Tendencias, { TendenciasHorizontal } from "../../components/Tendencias";
 import Link from "next/link";
 import { useParams, usePathname, useSearchParams } from "next/navigation";
 import { redirect, useRouter } from "next/navigation";
-import ModalGallery from "@/app/components/ModalGallery";
+import ModalGallery from "@/app/components/Modal/ModalGallery";
 const key_unsplash = "client_id=vwL9AtGcvwfhrI96O7kq6sK49n6DqxgwGrviH5TAhQw";
 
 const ImageHuntPage = () => {
   const [images, setImages] = useState<any[]>([]);
   const [input, setInput] = useState("");
+  const [photoIdParam, setPhotoIdParam] = useState("");
   const params = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -61,47 +62,42 @@ const ImageHuntPage = () => {
   useEffect(() => {
     onSearchSubmit(input);
   }, []);
-  useEffect(() => {
-    if (photoId) {
-      router.replace(`/applications/imagehunt/?photoId=${photoId}`, {
-        scroll: false,
-      });
-    }
-  }, []);
 
   return (
-    <div
-      id="imagehunt"
-      className={
-        "flex flex-col space-y-4 bg-gradient-to-r from-black via-gray-950 to-black "
-      }
-    >
+    <div id="imagehunt" className={"flex flex-col space-y-4"}>
       {/* {photoId && <ModalGallery onClose={() => null} />} */}
-      {photoId && (
-        <ModalGallery
-          onClose={() =>
-            router.replace("/applications/imagehunt", { scroll: false })
-          }
-          image={images.find((img) => img.id === photoId)}
-          images={images}
-        />
-      )}
 
-      <div className={"flex"}>
-        <div>
+      {/* <ModalGallery
+        isOpen={!!photoId}
+        onClose={() =>
+          router.replace(`/applications/imagehunt`, { scroll: false })
+        }
+        image={images.find((img) => img.id === photoId)}
+        images={images}
+      /> */}
+
+      <div>
+        <TendenciasHorizontal
+          onSearch={(value) => onSearchSubmit(value, true)}
+        />
+      </div>
+
+      <div className={"flex justify-start"}>
+        <div className={"hidden sm:flex flex-col space-y-4 sm:max-w-xs "}>
           <Tendencias onSearch={(value) => onSearchSubmit(value, true)} />
         </div>
 
-        <div className={"flex flex-col space-y-4"}>
+        <div id="gallery" className={"flex flex-col space-y-4"}>
           <div className={styles.galleryImagesGrid}>
+            {/* <ImagesSkeleton /> */}
             {images.map((img, index) => {
               return (
                 <Link
                   key={index}
-                  href={`?photoId=${img.id}`}
-                  // as={`/applications/imagehunt/${img.id}`}
-                  // shallow
-
+                  href={`/applications/imagehunt/photo/${img.id}`}
+                  //decora los parametros de la url
+                  // as={`/photo/${img.id}`}
+                  // replace
                   scroll={false}
                 >
                   <img
@@ -128,3 +124,47 @@ const ImageHuntPage = () => {
 };
 
 export default ImageHuntPage;
+
+const imagesSizes = [
+  {
+    width: "300px",
+    height: "300px",
+  },
+  {
+    width: "900px",
+    height: "800px",
+  },
+  {
+    width: "800px",
+    height: "1000px",
+  },
+  {
+    width: "600px",
+    height: "600px",
+  },
+  {
+    width: "500px",
+    height: "500px",
+  },
+];
+const randomImageSize = () => {
+  const size = imagesSizes[Math.floor(Math.random() * imagesSizes.length)];
+  return {
+    width: size.width,
+    height: size.height,
+  };
+};
+
+const ImagesSkeleton = () => {
+  return Array(10)
+    .fill(0)
+    .map((_, index) => {
+      return (
+        <div
+          key={index}
+          className=" card mb-3  relative rounded-2xl cursor-pointer bg-slate-600"
+          style={randomImageSize()}
+        ></div>
+      );
+    });
+};

@@ -30,7 +30,8 @@
     ".next/types/**/*.ts",
     "app/page.jsx",
     "app/components/CardArray.tsx.test",
-    "app/applications/imagehunt/page.js"
+    "app/applications/imagehunt/page.js",
+    "app/applications/product/page.jsx"
   ],
   "exclude": ["node_modules"]
 }

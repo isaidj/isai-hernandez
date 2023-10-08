@@ -1,31 +1,45 @@
+"use client";
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import downloadPhoto from "@/utils/downloadPhoto";
 import { CloseIcon } from "@/assets/Icons";
+import Photo from "../Photo";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export const ModalGallery = ({
-  onClose,
+  isOpen,
+  // onClose,
   image,
-  images,
-}: {
-  onClose: () => void;
+}: // images,
+{
+  isOpen: boolean;
+  // onClose: () => void;
   image: any;
-  images: any[];
+  // images: any[];
 }) => {
   //   let [isOpen, setIsOpen] = useState(true);
-
+  const pathname = usePathname();
+  const params = useSearchParams();
   return (
     <Dialog
-      open={true}
-      onClose={() => onClose()}
+      open={isOpen}
+      onClose={() => {}}
+      // onClose={() => onClose()}
       className="fixed inset-0 z-10 flex justify-center backdrop-filter backdrop-blur-sm  overflow-y-auto "
     >
-      <button onClick={() => onClose()} className=" inset-x-7 top-7 absolute">
+      <button
+        // onClick={() => onClose()}
+        className=" inset-x-7 top-7 absolute"
+      >
         <CloseIcon />
       </button>
 
       <Dialog.Panel className=" bg-white rounded-xl shadow-lg w-11/12 h-5/6 mt-8">
-        <header className="flex justify-between items-center p-2 border-b border-gray-200">
+        {/* {params.values()}
+        {pathname} */}
+        prueba
+        {/* <Photo id={params.get("photoId")} pathname={pathname} /> */}
+        {/* <header className="flex justify-between items-center p-2 border-b border-gray-200">
           <h2 className="text-xl font-bold text-black">Image</h2>
           <div className="flex flex-row items-center gap-2">
             <button
@@ -38,18 +52,6 @@ export const ModalGallery = ({
         </header>
         <div className="flex flex-col justify-between items-center ">
           <img src={image.urls.regular} alt="" className="rounded-2xl h-96" />
-          {/* <div className="flex flex-row space-y-4">
-            {images.map((img, index) => {
-              return (
-                <img
-                  key={index}
-                  src={img.urls.small_s3}
-                  className="card mb-3  relative rounded-2xl cursor-pointer"
-                  alt="..."
-                />
-              );
-            })}
-          </div> */}
         </div>
         <div className="p-2 border-t border-gray-200">
           <div className="flex flex-row justify-between">
@@ -60,7 +62,7 @@ export const ModalGallery = ({
             </div>
           </div>
           <p className="text-sm  text-black">likes: {image.likes}</p>
-        </div>
+        </div> */}
       </Dialog.Panel>
     </Dialog>
   );

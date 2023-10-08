@@ -28,6 +28,58 @@ const list_tendencias = {
     { label: "Great Barrier Reef", value: "great barrier reef" },
     { label: "Antelope Canyon", value: "antelope canyon" },
   ],
+  Movies: [
+    { label: "Inception", value: "inception" },
+    { label: "Blade Runner 2049", value: "blade runner 2049" },
+    { label: "The Matrix", value: "the matrix" },
+    { label: "Interstellar", value: "interstellar" },
+    { label: "Avengers: Endgame", value: "avengers endgame" },
+    {
+      label: "Star Wars",
+      value: "star wars",
+    },
+    { label: "Jurassic Park", value: "jurassic park" },
+  ],
+  Technologies: [
+    { label: "Artificial Intelligence", value: "artificial intelligence" },
+    { label: "Blockchain", value: "blockchain" },
+    { label: "Augmented Reality", value: "augmented reality" },
+    { label: "5G", value: "5g" },
+    { label: "Quantum Computing", value: "quantum computing" },
+    { label: "Biotechnology", value: "biotechnology" },
+    { label: "Renewable Energy", value: "renewable energy" },
+  ],
+  Books: [
+    { label: "1984", value: "1984" },
+    { label: "The Lord of the Rings", value: "the lord of the rings" },
+    { label: "Brave New World", value: "brave new world" },
+    { label: "Dune", value: "dune" },
+    { label: "Harry Potter series", value: "harry potter series" },
+
+    { label: "To Kill a Mockingbird", value: "to kill a mockingbird" },
+  ],
+  Hobbies: [
+    { label: "Photography", value: "photography" },
+    { label: "Cooking", value: "cooking" },
+    { label: "Gardening", value: "gardening" },
+    {
+      label: "Playing a Musical Instrument",
+      value: "playing a musical instrument",
+    },
+    { label: "Hiking", value: "hiking" },
+    { label: "Painting", value: "painting" },
+    { label: "Yoga", value: "yoga" },
+  ],
+  Sports: [
+    { label: "Soccer", value: "soccer" },
+    { label: "Basketball", value: "basketball" },
+    { label: "Tennis", value: "tennis" },
+    { label: "Swimming", value: "swimming" },
+    { label: "Running", value: "running" },
+    { label: "Cycling", value: "cycling" },
+    { label: "Golf", value: "golf" },
+    { label: "Volleyball", value: "volleyball" },
+  ],
 };
 
 const Tendencias = ({ onSearch }: { onSearch: (value: string) => void }) => {
@@ -53,6 +105,51 @@ const Tendencias = ({ onSearch }: { onSearch: (value: string) => void }) => {
           </div>
         </div>
       ))}
+    </div>
+  );
+};
+export const TendenciasHorizontal = ({
+  onSearch,
+}: {
+  onSearch: (value: string) => void;
+}) => {
+  const ref = React.useRef<HTMLDivElement>(null);
+
+  const onRightScroll = () => {
+    console.log("right");
+    ref.current?.scrollBy({
+      left: 100,
+      behavior: "smooth",
+    });
+  };
+  const onLeftScroll = () => {
+    console.log("left");
+    ref.current?.scrollBy({
+      left: -100,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <div
+      ref={ref}
+      id="scroll_horizontal_menu"
+      className=" flex sm:hidden flex-col space-y-4 sm:max-w-xs after:absolute after:content-['.'] after:text-transparent after:right-0 after:w-32 after:bg-gradient-to-r from-transparent to-black after:z-10 overflow-x-scroll scrollbar-hide"
+    >
+      <div className="flex flex-row items-start gap-7 ml-3">
+        {Object.keys(list_tendencias).map((key, index) => (
+          <label
+            key={index}
+            onClick={(e) => {
+              console.log(key);
+              onSearch(key.toLowerCase());
+            }}
+            className="text-slate-200 border-b-2 border-transparent cursor-pointer whitespace-nowrap  hover:text-gray-400 hover:border-b-2 hover:border-gray-600 transition duration-300"
+          >
+            {key}
+          </label>
+        ))}
+      </div>
     </div>
   );
 };
