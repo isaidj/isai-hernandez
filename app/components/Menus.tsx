@@ -50,7 +50,7 @@ export const MainMenu = ({ routes }: { routes: routes[] }) => {
       onMenuOpenChange={setIsMenuOpen}
       maxWidth="full"
       // isBlurred={true}
-      className=" mt-9 rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 bg-gray-700 h-12 w-full sm:w-9/12 z-10"
+      className="mt-9 rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 bg-gray-700 h-12 w-full sm:w-9/12 z-10"
 
       // isBordered
     >
@@ -79,7 +79,7 @@ export default MainMenu;
 export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const lastPath = usePathname().split("/").pop();
-  console.log(lastPath);
+  // console.log(lastPath);
 
   const menu = routes.map((item, index) => (
     <Link
@@ -93,6 +93,7 @@ export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
       // style={
       //   lastPath === item.link.split("/").pop() ? { color: "#fbbf24" } : {}
       // }
+      onClick={() => setIsMenuOpen(false)}
     >
       {item.name}
     </Link>
@@ -100,7 +101,10 @@ export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
   return (
     <Navbar
       isBordered
-      className="relative flex rounded-lg w-5/6 p-0 z-10 h-8 self-center"
+      className="relative flex justify-center  w-full p-0 z-10 h-8 self-center bg-black"
+      height="2rem"
+      position="sticky"
+      isMenuOpen={isMenuOpen}
     >
       <Link href="/" className="h-full">
         <BackIcon className=" absolute fill-zinc-300 w-6 h-full ml-2 hover:fill-amber-400 cursor-pointer" />
@@ -109,6 +113,7 @@ export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
       <NavbarMenuToggle
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         className="sm:hidden text-white h-14 self-center"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
       />
       <NavbarContent className="hidden text-white  w-full p-0 m-0  sm:flex ">
         <NavbarItem
@@ -118,7 +123,9 @@ export const MenuSecodary = ({ routes }: { routes: routes[] }) => {
           {menu}
         </NavbarItem>
 
-        <NavbarMenu>{menu}</NavbarMenu>
+        <NavbarMenu className="flex flex-col items-center justify-center gap-4 w-full bg-black opacity-90">
+          {menu}
+        </NavbarMenu>
       </NavbarContent>
     </Navbar>
   );

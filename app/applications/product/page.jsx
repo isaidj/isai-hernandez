@@ -24,6 +24,7 @@ const Product = () => {
   const [colorActive, setColorActive] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [showMore, setShowMore] = useState(false);
+  // const [zoom, setZoom] = useState(false);
 
   const [averageColorGradient, setAverageColorGradient] = useState(null);
   const [fontColor, setFontColor] = useState(null);
@@ -110,7 +111,11 @@ const Product = () => {
     };
   }, []);
   return (
-    <ProductContainer style={{ background: averageColorGradient }}>
+    <ProductContainer
+      style={{ background: averageColorGradient }}
+      showMore={showMore}
+      // zoom={zoom}
+    >
       <div className="content">
         <div className="title-background-container">
           <span className="title-background">{product.name_prod}</span>
@@ -128,6 +133,8 @@ const Product = () => {
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
+                onClick={() => setZoom(!zoom)}
+
                 // onLoad={() => {
                 //   setMainImage(mainImageRef.current.src);
                 // }}
@@ -145,16 +152,6 @@ const Product = () => {
                   />
                 );
               })}
-              {/* <img
-                  src={urls3images + ExtractStringByComma(product.img)[1]}
-                  alt={ExtractStringByComma(product.img)[1]}
-                  onClick={(e) => imageViewsHandler(e.target.src)}
-                />
-                <img
-                  src={urls3images + ExtractStringByComma(product.img)[3]}
-                  alt="vr"
-                  onClick={(e) => imageViewsHandler(e.target.src)}
-                /> */}
             </div>
           </div>
           <div className="description-container">
@@ -212,10 +209,7 @@ const ProductContainer = styled.div`
   height: auto;
   min-height: 100vh;
 
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-
+  overflow-x: hidden;
   transition: all 0.5s ease-in-out;
 
   .title-background-container {
@@ -241,17 +235,25 @@ const ProductContainer = styled.div`
 
   .principal-container {
     display: flex;
-    width: 800px;
+    width: 1000px;
     height: 100%;
+
     /* min-height: 600px; */
     margin: 0 auto;
     padding-top: 2rem;
     align-items: center;
     justify-content: center;
+    /* transition: all 0.5s ease-in-out; */
+    @media (max-width: 768px) {
+      padding-top: 0px;
+    }
+    @media (max-width: 992px) {
+      width: 100%;
+    }
   }
   .images-container {
     position: relative;
-    width: 50%;
+    width: 70%;
     height: 90%;
 
     z-index: 1;
@@ -278,7 +280,7 @@ const ProductContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px 0 0 0;
+    border-radius: ${(props) => (props.zoom ? "0px 10px 0 0" : "10px 0 0 0")};
     position: relative;
 
     //transition for image
@@ -300,11 +302,9 @@ const ProductContainer = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    cursor: ${(props) => (props.zoom ? "zoom-out" : "zoom-in")};
   }
   .images {
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr); */
-    /* position: relative; */
     display: flex;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -325,17 +325,7 @@ const ProductContainer = styled.div`
       }
     }
   }
-  /* .images::after {
-    position: absolute;
-    content: "";
-    color: transparent;
-    right: 0;
-    top: 0;
-    width: 3rem;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #000000 100%);
-    z-index: 1;
-  } */
+
   .description-container {
     width: 50%;
     height: fit-content;
@@ -483,14 +473,25 @@ const ProductContainer = styled.div`
     font-size: 1rem;
     font-weight: 700;
     background: #212121;
+    color: #ffffff;
     transition: all 0.3s ease;
+    &:hover {
+      background: #ffffff;
+      color: #212121;
+      border: 1px solid #212121;
+    }
   }
   .buy-now {
+    color: #212121;
     width: 50%;
     height: 50px;
     font-size: 1rem;
     font-weight: 700;
     margin-top: 10px;
+    transition: all 0.3s ease;
+    &:hover {
+      color: #ffffff;
+    }
   }
 
   @media (max-width: 768px) {

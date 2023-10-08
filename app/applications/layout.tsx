@@ -4,7 +4,7 @@ import React from "react";
 
 const DashboardLayout = ({ children }: any) => {
   return (
-    <section className=" flex flex-col   w-full min-h-screen">
+    <section className=" flex flex-col    w-full min-h-screen">
       <MenuSecodary
         routes={[
           { name: "Applications", link: "/applications" },
