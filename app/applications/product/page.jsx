@@ -210,6 +210,7 @@ const ProductContainer = styled.div`
   min-height: 100vh;
 
   overflow-x: hidden;
+  background: #0a0a0adf;
   transition: all 0.5s ease-in-out;
 
   .title-background-container {

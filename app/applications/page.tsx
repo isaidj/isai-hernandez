@@ -10,17 +10,12 @@ const Page = () => {
   return (
     <div
       id="applications"
-      className="flex min-h-screen  flex-col  items-center pt-3 sm:px-0 sm:pt-28 relative bg-gradient-to-r from-black via-gray-900 to-black gap-4"
+      className="flex min-h-screen  flex-col   items-center pt-3 sm:px-0 sm:pt-28 relative bg-gradient-to-r from-black via-gray-900 to-black gap-4"
     >
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="sr-only">Products</h2>
 
-        {/* <div className=" grid grid-cols-1 flex-col items-end gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8  ">
-          {routes.map((route) => (
-            <LinkRoute route={route} key={route.name} />
-          ))}
-        </div> */}
-        <div className="flex flex-row flex-wrap justify-center gap-4 gap-y-10">
+        <div className="flex flex-row flex-wrap justify-around w-auto  gap-4 gap-y-10">
           {routes.map((route) => (
             <LinkRoute route={route} key={route.name} />
           ))}
@@ -32,43 +27,31 @@ const Page = () => {
 
 export default Page;
 
-const Carrousell = ({ images }: { images: string[] | StaticImageData[] }) => {
-  // console.log(images);
-  const [current, setCurrent] = useState(0);
-  const length = images.length;
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prevCurrent) =>
-        prevCurrent === length - 1 ? 0 : prevCurrent + 1
-      );
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [current, length]);
-
-  if (!Array.isArray(images) || images.length <= 0) {
-    return null;
-  }
-
-  return (
-    <Image
-      src={urls3images + images[current]}
-      alt="images"
-      className="h-80 w-full object-cover aspect-square hover:opacity-75"
-      width={800}
-      height={800}
-    />
-  );
-};
-
 const LinkRoute = ({ route }: { route: routes }) => {
   const [isOpened, setIsOpened] = useState(false);
+  const handleOpen = () => {
+    setIsOpened(!isOpened);
+    setTimeout(() => {
+      document.getElementById(route.name)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "start",
+      });
+    }, 300);
+  };
   return (
-    <div className={`group flex flex-col md:flex-row }`}>
+    <div
+      className={`group flex flex-col md:flex-row   ${isOpened && "w-auto"}  `}
+      id={route.name}
+    >
       <div className="">
         <Link
           href={route.link}
-          className="relative flex items-center aspect-square w-full h-auto overflow-hidden rounded-lg bg-black xl:aspect-h-8 xl:aspect-w-7"
+          className={
+            "relative flex items-center aspect-square w-full h-auto overflow-hidden rounded-lg bg-black xl:aspect-h-8 xl:aspect-w-7" +
+            (route.link === "#" ? " cursor-not-allowed" : "")
+          }
+          aria-disabled={route.link === "#" ? true : false}
         >
           {route.video ? (
             <div className="w-80 h-80 bg-black flex justify-start items-start">
@@ -105,8 +88,13 @@ const LinkRoute = ({ route }: { route: routes }) => {
               ))}
             </div>
           )}
+          {route.inDevelopment === "inDevelopment" && (
+            <div className="absolute top-0 left-0 flex flex-row gap-2 bg-yellow-400 bg-opacity-70 px-2 rounded-r-sm">
+              <div>In Development</div>
+            </div>
+          )}
         </Link>
-        <div className="relative" onClick={() => setIsOpened(!isOpened)}>
+        <div className="relative" onClick={() => handleOpen()}>
           {route.tools && (
             <div className="flex flex-row gap-2 mt-2">
               {route.tools.map((tool, index) => (
@@ -115,7 +103,7 @@ const LinkRoute = ({ route }: { route: routes }) => {
             </div>
           )}
           <div className="flex flex-row justify-between w-full cursor-pointer select-none">
-            <h3 className="mt-4 ml-4 text-sm text-gray-500">{route.name}</h3>
+            <h3 className="mt-4 ml-4 text-base text-gray-500">{route.name}</h3>
             <div className="absolute right-0 top-1/2">
               <ArrowDownIcon
                 className={`w-7 h-7   md:w-6 md:h-6  text-gray-500 group-hover:text-gray-400 transition-all duration-200 ${
@@ -135,12 +123,46 @@ const LinkRoute = ({ route }: { route: routes }) => {
         <p className="text-sm text-gray-500">{route.description}</p>
         <div className="flex justify-center mt-4">
           <Link href={route.link}>
-            <button className="bg-gray-900 hover:bg-gray-800 text-gray-100 px-4 py-2 rounded-md">
+            <button
+              className={
+                "bg-gray-900 hover:bg-gray-800 text-gray-100 px-4 py-2 rounded-md" +
+                (route.link === "#" ? " opacity-50 cursor-not-allowed" : "")
+              }
+              disabled={route.link === "#" ? true : false}
+            >
               Preview
             </button>
           </Link>
         </div>
       </div>
     </div>
+  );
+};
+const Carrousell = ({ images }: { images: string[] | StaticImageData[] }) => {
+  // console.log(images);
+  const [current, setCurrent] = useState(0);
+  const length = images.length;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prevCurrent) =>
+        prevCurrent === length - 1 ? 0 : prevCurrent + 1
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [current, length]);
+
+  if (!Array.isArray(images) || images.length <= 0) {
+    return null;
+  }
+
+  return (
+    <Image
+      src={urls3images + images[current]}
+      alt="images"
+      className="h-80 w-full object-cover aspect-square hover:opacity-75"
+      width={800}
+      height={800}
+    />
   );
 };
