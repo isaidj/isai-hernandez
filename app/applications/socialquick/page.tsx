@@ -1,5 +1,5 @@
 import React from "react";
-import album from "../../../public/img/album.jpg";
+import album from "@/public/img/album.webp";
 import Image from "next/image";
 import Link from "next/link";
 import { TiktokIcon } from "@/assets/Icons";

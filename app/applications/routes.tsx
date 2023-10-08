@@ -13,9 +13,9 @@ import {
   StyledComponentsIcon,
   TailwindIcon,
 } from "@/assets/Icons";
-import Puzzle from "../../public/img/puzzle.png";
-import ImageHunt from "../../public/img/imagehunt.png";
-import Landing from "../../public/img/landing.png";
+import Puzzle from "../../public/img/puzzle.webp";
+import ImageHunt from "../../public/img/imagehunt.webp";
+import Landing from "../../public/img/landing.webp";
 import logoAuditoria from "../../public/img/logoAuditoria.webp";
 import logogscanner from "../../public/img/logogscanner.webp";
 import dresons from "../../public/img/dreasons.webp";

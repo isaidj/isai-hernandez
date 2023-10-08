@@ -1,9 +1,9 @@
 import { StaticImageData } from "next/image";
-import nikeBlue from "../assets/product/nikeBlue.jpg";
-import nikeGreen from "../assets/product/nikeGreen.jpg";
-import nikeRed from "../assets/product/nikeRed.jpg";
-import nikeWhite from "../assets/product/nikeWhite.jpg";
-import nikeBlack from "../assets/product/nikeBlack.jpg";
+import nikeBlue from "../assets/product/nikeBlue.webp";
+import nikeGreen from "../assets/product/nikeGreen.webp";
+import nikeRed from "../assets/product/nikeRed.webp";
+import nikeWhite from "../assets/product/nikeWhite.webp";
+import nikeBlack from "../assets/product/nikeBlack.webp";
 interface ProductMockup {
   id: number;
   name_prod: string;
