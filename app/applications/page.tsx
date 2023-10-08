@@ -8,12 +8,12 @@ import { ArrowDownIcon } from "@/assets/Icons";
 const urls3images = "https://tecnofacil.s3.amazonaws.com/";
 const Page = () => {
   return (
-    <div
+    <main
       id="applications"
       className="flex min-h-screen  flex-col   items-center pt-3 sm:px-0 sm:pt-28 relative bg-gradient-to-r from-black via-gray-900 to-black gap-4"
     >
       <div className="flex mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="sr-only">Products</h2>
+        <h1 className="sr-only">Projects</h1>
 
         <div className="flex flex-row flex-wrap justify-around w-auto  gap-4 gap-y-10">
           {routes.map((route) => (
@@ -21,7 +21,7 @@ const Page = () => {
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
@@ -40,60 +40,62 @@ const LinkRoute = ({ route }: { route: routes }) => {
     }, 300);
   };
   return (
-    <div
+    <article
       className={`group flex flex-col md:flex-row   ${isOpened && "w-auto"}  `}
       id={route.name}
     >
       <div className="">
-        <Link
-          href={route.link}
-          className={
-            "relative flex items-center aspect-square w-full h-auto overflow-hidden rounded-lg bg-black xl:aspect-h-8 xl:aspect-w-7" +
-            (route.link === "#" ? " cursor-not-allowed" : "")
-          }
-          aria-disabled={route.link === "#" ? true : false}
-        >
-          {route.video ? (
-            <div className="w-80 h-80 bg-black flex justify-start items-start">
-              <video
-                autoPlay
-                muted
-                loop
-                className="w-full  bg-black min-h-full min-w-full object-cover"
-              >
-                <source src={route.video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          ) : route.carrusel ? (
-            <Carrousell
-              images={
-                typeof route.image === "string"
-                  ? route.image.split(",")
-                  : [route.image]
-              }
-              key={route.name}
-            />
-          ) : (
-            <Image
-              src={route.image}
-              alt={route.name}
-              className="h-80 w-full object-cover aspect-square  hover:opacity-90 transition-opacity duration-75 ease-in-out "
-            />
-          )}
-          {route.platforms && (
-            <div className="absolute bottom-0 right-0 flex flex-row gap-2 bg-gray-900 bg-opacity-70 px-2 rounded-l-sm">
-              {route.platforms.map((platform, index) => (
-                <div key={route.name + index}>{platform}</div>
-              ))}
-            </div>
-          )}
-          {route.inDevelopment === "inDevelopment" && (
-            <div className="absolute top-0 left-0 flex flex-row gap-2 bg-yellow-400 bg-opacity-70 px-2 rounded-r-sm">
-              <div>In Development</div>
-            </div>
-          )}
-        </Link>
+        <header>
+          <Link
+            href={route.link}
+            className={
+              "relative flex items-center aspect-square w-full h-auto overflow-hidden rounded-lg bg-black xl:aspect-h-8 xl:aspect-w-7" +
+              (route.link === "#" ? " cursor-not-allowed" : "")
+            }
+            aria-disabled={route.link === "#" ? true : false}
+          >
+            {route.video ? (
+              <div className="w-80 h-80 bg-black flex justify-start items-start">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full  bg-black min-h-full min-w-full object-cover"
+                >
+                  <source src={route.video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            ) : route.carrusel ? (
+              <Carrousell
+                images={
+                  typeof route.image === "string"
+                    ? route.image.split(",")
+                    : [route.image]
+                }
+                key={route.name}
+              />
+            ) : (
+              <Image
+                src={route.image}
+                alt={route.name}
+                className="h-80 w-full object-cover aspect-square  hover:opacity-90 transition-opacity duration-75 ease-in-out "
+              />
+            )}
+            {route.platforms && (
+              <div className="absolute bottom-0 right-0 flex flex-row gap-2 bg-gray-900 bg-opacity-70 px-2 rounded-l-sm">
+                {route.platforms.map((platform, index) => (
+                  <div key={route.name + index}>{platform}</div>
+                ))}
+              </div>
+            )}
+            {route.inDevelopment === "inDevelopment" && (
+              <div className="absolute top-0 left-0 flex flex-row gap-2 bg-yellow-400 bg-opacity-70 px-2 rounded-r-sm">
+                <div>In Development</div>
+              </div>
+            )}
+          </Link>
+        </header>
         <div className="relative" onClick={() => handleOpen()}>
           {route.tools && (
             <div className="flex flex-row gap-2 mt-2">
@@ -114,7 +116,7 @@ const LinkRoute = ({ route }: { route: routes }) => {
           </div>
         </div>
       </div>
-      <div
+      <section
         className={`flex w-80 m-3 flex-col gap-2 transition-all duration-200 max-w-xs ${
           isOpened ? "w-full" : "hidden"
         } `}
@@ -134,8 +136,8 @@ const LinkRoute = ({ route }: { route: routes }) => {
             </button>
           </Link>
         </div>
-      </div>
-    </div>
+      </section>
+    </article>
   );
 };
 const Carrousell = ({ images }: { images: string[] | StaticImageData[] }) => {

@@ -117,10 +117,10 @@ const Product = () => {
       // zoom={zoom}
     >
       <div className="content">
-        <div className="title-background-container">
-          <span className="title-background">{product.name_prod}</span>
-        </div>
-        <div className="principal-container">
+        <header className="title-background-container">
+          <h1 className="title-background">{product.name_prod}</h1>
+        </header>
+        <main className="principal-container">
           <div className="images-container">
             <ShareIcon className="w-8 h-8 share-icon" />
             <div className="principal-image-container">
@@ -196,7 +196,7 @@ const Product = () => {
               </button>
             </div>
           </div>
-        </div>
+        </main>
       </div>
     </ProductContainer>
   );
