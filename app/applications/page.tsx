@@ -15,7 +15,7 @@ const Page = () => {
       <div className="flex mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="sr-only">Projects</h1>
 
-        <div className="flex flex-row flex-wrap justify-around w-auto  gap-4 gap-y-10">
+        <div className="flex flex-row flex-wrap justify-center md:justify-start w-auto  gap-4 gap-y-10">
           {routes.map((route) => (
             <LinkRoute route={route} key={route.name} />
           ))}
@@ -55,7 +55,7 @@ const LinkRoute = ({ route }: { route: routes }) => {
             aria-disabled={route.link === "#" ? true : false}
           >
             {route.video ? (
-              <div className="w-80 h-80 bg-black flex justify-start items-start">
+              <div className="w-52 h-52 bg-black flex justify-start items-start">
                 <video
                   autoPlay
                   muted
@@ -79,7 +79,7 @@ const LinkRoute = ({ route }: { route: routes }) => {
               <Image
                 src={route.image}
                 alt={route.name}
-                className="h-80 w-full object-cover aspect-square  hover:opacity-90 transition-opacity duration-75 ease-in-out "
+                className="h-52 w-full object-cover aspect-square  hover:opacity-90 transition-opacity duration-75 ease-in-out "
               />
             )}
             {route.platforms && (
@@ -117,11 +117,14 @@ const LinkRoute = ({ route }: { route: routes }) => {
         </div>
       </div>
       <section
-        className={`flex w-80 m-3 flex-col gap-2 transition-all duration-200 max-w-xs ${
+        id={route.name}
+        className={`flex w-80 m-3 flex-col gap-2  bg-transparent transition-all duration-200 max-w-xs ${
           isOpened ? "w-full" : "hidden"
         } `}
       >
-        <h3 className="text-lg font-semibold text-gray-200">{route.name}</h3>
+        <h3 className="text-lg font-semibold text-gray-200 md:text-lg">
+          {route.name}
+        </h3>
         <p className="text-sm text-gray-500">{route.description}</p>
         <div className="flex justify-center mt-4">
           <Link href={route.link}>
@@ -162,7 +165,7 @@ const Carrousell = ({ images }: { images: string[] | StaticImageData[] }) => {
     <Image
       src={urls3images + images[current]}
       alt="images"
-      className="h-80 w-full object-cover aspect-square hover:opacity-75"
+      className="h-52 w-full object-cover aspect-square hover:opacity-75"
       width={800}
       height={800}
     />

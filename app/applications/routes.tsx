@@ -72,6 +72,22 @@ export const routes: routes[] = [
     ],
   },
   {
+    name: "Puzzle Verse",
+    link: "/applications/puzzleverse",
+    description:
+      "The idea of developing this puzzle game was to practice using matrices and JavaScript functions. It was built using React and TailwindCSS.",
+    inDevelopment: "developed",
+    image: Puzzle,
+    tools: [
+      <ReactIcon
+        key="react"
+        className={" fill-sky-500 " + classNameIcons}
+        id="react"
+      />,
+      <TailwindIcon key="tailwind" className={classNameIcons} />,
+    ],
+  },
+  {
     name: "Dreasons",
     link: "#",
     video: "https://tecnofacil.s3.amazonaws.com/dreasonsvideo.mp4",
@@ -86,22 +102,6 @@ export const routes: routes[] = [
         className={classNameIcons}
       />,
       <MantineIcon key="mantine" className={classNameIcons} />,
-    ],
-  },
-  {
-    name: "Puzzle Verse",
-    link: "/applications/puzzleverse",
-    description:
-      "The idea of developing this puzzle game was to practice using matrices and JavaScript functions. It was built using React and TailwindCSS.",
-    inDevelopment: "developed",
-    image: Puzzle,
-    tools: [
-      <ReactIcon
-        key="react"
-        className={" fill-sky-500 " + classNameIcons}
-        id="react"
-      />,
-      <TailwindIcon key="tailwind" className={classNameIcons} />,
     ],
   },
   {

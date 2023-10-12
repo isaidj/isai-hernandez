@@ -1,5 +1,5 @@
 "use client";
-import { GithubIcon, LinkedinIcon } from "@/assets/Icons";
+import { GithubIcon, GithubIconV2, LinkedinIcon } from "@/assets/Icons";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -48,7 +48,7 @@ export const SocialMedia: React.FC = () => {
         id="Github"
         href="https://github.com/isaidj"
         icon={
-          <GithubIcon
+          <GithubIconV2
             className="w-8 h-8 text-white hover:fill-white transition-all duration-200"
             //title
           />
