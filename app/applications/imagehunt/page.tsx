@@ -1,18 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { ImageCard } from "../../components/ImageCard";
 
-import { Spacer } from "@nextui-org/spacer";
-import { Navbar } from "@nextui-org/navbar";
-import { Button } from "@nextui-org/button";
-import { Input } from "@nextui-org/input";
 import styles from "../../components/cards.module.css";
-import { SearchIcon } from "../../../assets/Icons";
+
 import Tendencias, { TendenciasHorizontal } from "../../components/Tendencias";
 import Link from "next/link";
 import { useParams, usePathname, useSearchParams } from "next/navigation";
-import { redirect, useRouter } from "next/navigation";
-import ModalGallery from "@/app/components/Modal/ModalGallery";
+import { useRouter } from "next/navigation";
+
 const key_unsplash = "client_id=vwL9AtGcvwfhrI96O7kq6sK49n6DqxgwGrviH5TAhQw";
 
 const ImageHuntPage = () => {
@@ -95,23 +90,12 @@ const ImageHuntPage = () => {
                 <Link
                   key={index}
                   href={`/applications/imagehunt/photo/${img.id}`}
-                  //decora los parametros de la url
-                  // as={`/photo/${img.id}`}
-                  // replace
                   scroll={false}
                 >
                   <img
                     src={img.urls.regular}
                     className="card mb-3  relative rounded-2xl cursor-pointer"
                     alt="..."
-                    // onClick={
-                    //   () =>
-                    //     router.replace(`?photoId=${img.id}`, { scroll: false })
-                    //   // router.replace(`/applications/imagehunt/photo/${img.id}`, {
-                    //   //   scroll: false,
-
-                    //   // })
-                    // }
                   />
                 </Link>
               );

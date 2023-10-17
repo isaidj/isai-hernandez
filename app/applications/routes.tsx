@@ -34,7 +34,7 @@ export interface routes {
 const classNameIcons = "w-7 h-7 md:w-7 md:h-7";
 export const routes: routes[] = [
   {
-    name: "Nike Cyberpunk",
+    name: "Nike Punk",
     link: "/applications/product",
     description:
       "In this project, I showcase the use of React, Styled Components, and NextJS to create a product page. I aimed to design it with an aesthetically pleasing and modern style.",
@@ -56,7 +56,7 @@ export const routes: routes[] = [
   },
   {
     name: "Image Hunt",
-    link: "/applications/imagehunt",
+    link: "https://image-hunt.vercel.app/",
     description:
       "Image Hunt is a project I created to practice using NextJS, TailwindCSS, and the Unsplash API. In this project, you can search for images and download them, as well as view information about the image and the author.",
     inDevelopment: "inDevelopment",
