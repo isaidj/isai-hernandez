@@ -56,7 +56,7 @@ export const routes: routes[] = [
   },
   {
     name: "Image Hunt",
-    link: "https://image-hunt.vercel.app/",
+    link: "https://imagehunt.vercel.app/",
     description:
       "Image Hunt is a project I created to practice using NextJS, TailwindCSS, and the Unsplash API. In this project, you can search for images and download them, as well as view information about the image and the author.",
     inDevelopment: "inDevelopment",
