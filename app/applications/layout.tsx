@@ -9,7 +9,7 @@ const DashboardLayout = ({ children }: any) => {
         routes={[
           { name: "Applications", link: "/applications" },
           { name: "Nike Cyberpunk", link: "/applications/product" },
-          { name: "Image Hunt", link: "/applications/imagehunt" },
+          { name: "Image Hunt", link: "https://imagehunt.vercel.app/" },
           { name: "Puzzle Verse", link: "/applications/puzzleverse" },
           { name: "Social Quick", link: "/applications/socialquick" },
         ]}

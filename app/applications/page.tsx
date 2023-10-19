@@ -89,9 +89,13 @@ const LinkRoute = ({ route }: { route: routes }) => {
                 ))}
               </div>
             )}
-            {route.inDevelopment === "inDevelopment" && (
-              <div className="absolute top-0 left-0 flex flex-row gap-2 bg-yellow-400 bg-opacity-70 px-2 rounded-r-sm">
-                <div>In Development</div>
+            {route.tag && (
+              <div
+                className={`absolute  top-0 left-0 flex flex-row gap-2 bg-opacity-90 px-2 rounded-r-sm ${route.tag.color}`}
+              >
+                <div className="text-base font-semibold text-gray-100">
+                  {route.tag.name}
+                </div>
               </div>
             )}
           </Link>
