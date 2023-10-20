@@ -12,6 +12,7 @@ import {
   ReactIconV2,
   StyledComponentsIcon,
   TailwindIcon,
+  ViteIcon,
 } from "@/assets/Icons";
 import Puzzle from "../../public/img/puzzle.webp";
 import ImageHunt from "../../public/img/imagehunt.webp";
@@ -36,26 +37,104 @@ export interface routes {
   platforms?: React.ReactNode[];
 }
 const classNameIcons = "w-7 h-7 md:w-7 md:h-7";
+// Common tools to be reused in  diferent projects
+type CommonToolsKey =
+  | "react"
+  | "reactNative"
+  | "vite"
+  | "styledComponents"
+  | "nextJs"
+  | "tailwind"
+  | "expo"
+  | "mantine"
+  | "electron"
+  | "python";
+
+interface CommonTool {
+  key: string;
+  href: string;
+  icon: React.ReactNode;
+}
+
+type CommonTools = Record<CommonToolsKey, CommonTool>;
+
+const commonTools: CommonTools = {
+  react: {
+    key: "react",
+    href: "https://reactjs.org/",
+    icon: <ReactIcon className={"fill-sky-500 " + classNameIcons} id="react" />,
+  },
+  reactNative: {
+    key: "react-native",
+    href: "https://reactnative.dev/",
+    icon: <ReactIconV2 className={classNameIcons} id="react" />,
+  },
+  vite: {
+    key: "vite",
+    href: "https://vitejs.dev/",
+    icon: <ViteIcon className={classNameIcons} />,
+  },
+  styledComponents: {
+    key: "styled-components",
+    href: "https://styled-components.com/",
+    icon: <StyledComponentsIcon className={classNameIcons} />,
+  },
+  nextJs: {
+    key: "next-js",
+    href: "https://nextjs.org/",
+    icon: <NextJsIcon className={classNameIcons} />,
+  },
+  tailwind: {
+    key: "tailwind",
+    href: "https://tailwindcss.com/",
+    icon: <TailwindIcon className={classNameIcons} />,
+  },
+  expo: {
+    key: "expo",
+    href: "https://expo.dev/",
+    icon: (
+      <div key="expo-icons" className="flex flex-row ">
+        <ExpoV2Icon className={" fill-white " + classNameIcons} />
+        <ExpoIcon className={" fill-white " + classNameIcons} />
+      </div>
+    ),
+  },
+  mantine: {
+    key: "mantine",
+    href: "https://mantine.dev/",
+    icon: <MantineIcon className={classNameIcons} />,
+  },
+  electron: {
+    key: "electron",
+    href: "https://www.electronjs.org/",
+    icon: <ElectronIcon className={classNameIcons} />,
+  },
+  python: {
+    key: "python",
+    href: "https://www.python.org/",
+    icon: <PythonIcon className={classNameIcons} />,
+  },
+};
+const link = (commonTool: CommonTool) => (
+  <a key={commonTool.key} href={commonTool.href} target="_blank">
+    {commonTool.icon}
+  </a>
+);
+
 export const routes: routes[] = [
   {
     name: "Nike Punk",
     link: "https://example-product-page.vercel.app/",
     description:
-      "In this project, I showcase the use of React, Styled Components, and NextJS to create a product page. I aimed to design it with an aesthetically pleasing and modern style.",
+      "In this project, I showcase the use of React, Styled Components to create a product page. I aimed to design it with an aesthetically pleasing and modern style.",
 
     image:
       "screenNikeBLue.webp,screenNikeGreen.webp,screenNikeRed.webp,screenNikeWhite.webp",
     carrusel: true,
     tools: [
-      <ReactIcon
-        key="react"
-        className={" fill-sky-500 " + classNameIcons}
-        id="react"
-      />,
-      <StyledComponentsIcon
-        key="styled-components"
-        className={classNameIcons}
-      />,
+      link(commonTools.react),
+      link(commonTools.vite),
+      link(commonTools.styledComponents),
     ],
   },
   {
@@ -69,13 +148,9 @@ export const routes: routes[] = [
     },
     image: ImageHunt,
     tools: [
-      <NextJsIcon key="next-js" className={classNameIcons} />,
-      <ReactIcon
-        key="react"
-        className={" fill-sky-500 " + classNameIcons}
-        id="react"
-      />,
-      <TailwindIcon key="tailwind" className={classNameIcons} />,
+      link(commonTools.nextJs),
+      link(commonTools.react),
+      link(commonTools.tailwind),
     ],
   },
   {
@@ -85,14 +160,7 @@ export const routes: routes[] = [
       "The idea of developing this puzzle game was to practice using matrices and JavaScript functions. It was built using React and TailwindCSS.",
 
     image: Puzzle,
-    tools: [
-      <ReactIcon
-        key="react"
-        className={" fill-sky-500 " + classNameIcons}
-        id="react"
-      />,
-      <TailwindIcon key="tailwind" className={classNameIcons} />,
-    ],
+    tools: [link(commonTools.react), link(commonTools.tailwind)],
   },
   {
     name: "Dreasons",
@@ -103,12 +171,9 @@ export const routes: routes[] = [
 
     image: dresons,
     tools: [
-      <NextJsIcon key="next-js" className={classNameIcons} />,
-      <StyledComponentsIcon
-        key="styled-components"
-        className={classNameIcons}
-      />,
-      <MantineIcon key="mantine" className={classNameIcons} />,
+      link(commonTools.nextJs),
+      link(commonTools.styledComponents),
+      link(commonTools.mantine),
     ],
   },
   {
@@ -121,14 +186,7 @@ export const routes: routes[] = [
       color: "bg-yellow-500",
     },
     image: Landing,
-    tools: [
-      <ReactIcon
-        key="react"
-        className={" fill-sky-500 " + classNameIcons}
-        id="react"
-      />,
-      <TailwindIcon key="tailwind" className={classNameIcons} />,
-    ],
+    tools: [link(commonTools.react), link(commonTools.tailwind)],
   },
   {
     name: "Auditoria - Web App",
@@ -137,12 +195,9 @@ export const routes: routes[] = [
       "This application was developed for the fashion company Silvia Tcherassi. It's the new control center for garments, with modules for inventory, auditing, user management, reports, and more. It centralizes garment information and systematizes auditing processes.",
     image: logoAuditoria,
     tools: [
-      <ReactIcon key="react" className={classNameIcons} />,
-      <MantineIcon key="mantine" className={classNameIcons} />,
-      <StyledComponentsIcon
-        key="styled-components"
-        className={classNameIcons}
-      />,
+      link(commonTools.react),
+      link(commonTools.mantine),
+      link(commonTools.styledComponents),
     ],
   },
   {
@@ -152,7 +207,7 @@ export const routes: routes[] = [
       "This app functions as a complement to the web application, allowing users to conduct garment audits.",
 
     image: logoAuditoria,
-    tools: [<ReactIconV2 key="react-v2" className={classNameIcons} />],
+    tools: [link(commonTools.reactNative)],
     platforms: [<AndroidIcon key="android" className={classNameIcons} />],
   },
   {
@@ -162,12 +217,7 @@ export const routes: routes[] = [
     description:
       "This app sends scanned codes to the desktop application (G-Scanner), which inserts the code into the open program. It helps streamline the inventory process but can also be used for any other process that requires scanning barcodes.",
 
-    tools: [
-      <div key="expo-icons" className="flex flex-row ">
-        <ExpoV2Icon className={" fill-white " + classNameIcons} />
-        <ExpoIcon className={" fill-white " + classNameIcons} />
-      </div>,
-    ],
+    tools: [link(commonTools.expo)],
     platforms: [
       <AndroidIcon key="android" className={classNameIcons} />,
       <AppleIcon key="apple" className={classNameIcons} />,
@@ -184,15 +234,9 @@ export const routes: routes[] = [
       color: "bg-yellow-500",
     },
     tools: [
-      <div key="expo-icons" className="flex flex-row ">
-        <ExpoV2Icon className={" fill-white " + classNameIcons} />
-        <ExpoIcon className={" fill-white " + classNameIcons} />
-      </div>,
-      <ElectronIcon
-        key="electron"
-        className={" fill-teal-300 " + classNameIcons}
-      />,
-      <PythonIcon key="python" className={classNameIcons} />,
+      link(commonTools.expo),
+      link(commonTools.electron),
+      link(commonTools.python),
     ],
   },
 ];
