@@ -155,7 +155,7 @@ export const routes: routes[] = [
   },
   {
     name: "Puzzle Verse",
-    link: "/applications/puzzleverse",
+    link: "https://puzzleverse.vercel.app/",
     description:
       "The idea of developing this puzzle game was to practice using matrices and JavaScript functions. It was built using React and TailwindCSS.",
 

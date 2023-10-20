@@ -13,7 +13,7 @@ const DashboardLayout = ({ children }: any) => {
             link: "https://example-product-page.vercel.app/",
           },
           { name: "Image Hunt", link: "https://imagehunt.vercel.app/" },
-          { name: "Puzzle Verse", link: "/applications/puzzleverse" },
+          { name: "Puzzle Verse", link: "https://puzzleverse.vercel.app/" },
           { name: "Social Quick", link: "/applications/socialquick" },
         ]}
       />
