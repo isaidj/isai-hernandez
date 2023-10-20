@@ -8,7 +8,10 @@ const DashboardLayout = ({ children }: any) => {
       <MenuSecodary
         routes={[
           { name: "Applications", link: "/applications" },
-          { name: "Nike Cyberpunk", link: "/applications/product" },
+          {
+            name: "Nike Cyberpunk",
+            link: "https://example-product-page.vercel.app/",
+          },
           { name: "Image Hunt", link: "https://imagehunt.vercel.app/" },
           { name: "Puzzle Verse", link: "/applications/puzzleverse" },
           { name: "Social Quick", link: "/applications/socialquick" },

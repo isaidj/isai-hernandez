@@ -39,7 +39,7 @@ const classNameIcons = "w-7 h-7 md:w-7 md:h-7";
 export const routes: routes[] = [
   {
     name: "Nike Punk",
-    link: "/applications/product",
+    link: "https://example-product-page.vercel.app/",
     description:
       "In this project, I showcase the use of React, Styled Components, and NextJS to create a product page. I aimed to design it with an aesthetically pleasing and modern style.",
 
