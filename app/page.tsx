@@ -50,14 +50,7 @@ export default function Home() {
               </h2>
             </div>
           </header>
-          {/* <Link href="/applications">
-            <button
-              id="applications-button"
-              className="px-4 py-2 animate-fade-in rounded-lg backdrop-filter backdrop-blur-sm bg-opacity-30 bg-gray-700  hover:bg-opacity-40 hover:bg-gray-600 transition-all duration-200"
-            >
-              PROJECTS
-            </button>
-          </Link> */}
+
           <div
             className="mt-4 opacity-0 w-screen h-px animate-glow md:block animate-fade-right-stay bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0"
             style={{ animationDelay: "1600ms" }}

@@ -1,6 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Hello, I'm **Isai Hernandez** 👋.
+This  is my personal website, where you can find my projects and my contact information.
 
-## Getting Started
+## How I built it
+
+I built this website using [Next.js](https://nextjs.org/), a React framework for production. I used [Tailwind CSS](https://tailwindcss.com/) for styling and [Framer Motion](https://www.framer.com/motion/) for animations. I also used [TypeScript](https://www.typescriptlang.org/) for type checking and [ESLint](https://eslint.org/) for linting.
 
 First, run the development server:
 

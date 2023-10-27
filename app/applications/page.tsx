@@ -53,6 +53,7 @@ const LinkRoute = ({ route }: { route: routes }) => {
               (route.link === "#" ? " cursor-not-allowed" : "")
             }
             aria-disabled={route.link === "#" ? true : false}
+            target="_blank"
           >
             {route.video ? (
               <div className="w-52 h-52 bg-black flex justify-start items-start">

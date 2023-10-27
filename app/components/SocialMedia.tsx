@@ -16,10 +16,11 @@ const SocialLink: React.FC<SocialLinkProps> = ({ id, href, icon }) => {
     <Link
       id={id}
       href={href}
-      className="w-8 h-8 text-white relative"
+      className="w-9 h-9 text-white relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => setTimeout(() => setIsHovered(false))}
+      target="_blank"
     >
       {icon}
       <div
@@ -41,7 +42,7 @@ export const SocialMedia: React.FC = () => {
         id="Linkedin"
         href="https://www.linkedin.com/in/isa%C3%AD-hernandez-garcia-17b1b3211/"
         icon={
-          <LinkedinIcon className="w-8 h-8 text-white hover:fill-white transition-all duration-200 shadow " />
+          <LinkedinIcon className="w-9 h-9 text-white hover:fill-white transition-all duration-200 shadow " />
         }
       />
       <SocialLink
@@ -49,12 +50,11 @@ export const SocialMedia: React.FC = () => {
         href="https://github.com/isaidj"
         icon={
           <GithubIconV2
-            className="w-8 h-8 text-white hover:fill-white transition-all duration-200"
+            className="w-9 h-9 text-white hover:fill-white transition-all duration-200"
             //title
           />
         }
       />
-      {/* Agrega más enlaces sociales aquí si es necesario */}
     </div>
   );
 };

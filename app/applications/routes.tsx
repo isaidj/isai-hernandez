@@ -5,6 +5,7 @@ import {
   ElectronIcon,
   ExpoIcon,
   ExpoV2Icon,
+  JavascriptIcon,
   MantineIcon,
   NextJsIcon,
   PythonIcon,
@@ -12,6 +13,7 @@ import {
   ReactIconV2,
   StyledComponentsIcon,
   TailwindIcon,
+  TypescriptIcon,
   ViteIcon,
 } from "@/assets/Icons";
 import Puzzle from "../../public/img/puzzle.webp";
@@ -48,7 +50,9 @@ type CommonToolsKey =
   | "expo"
   | "mantine"
   | "electron"
-  | "python";
+  | "python"
+  | "typescript"
+  | "javascript";
 
 interface CommonTool {
   key: string;
@@ -114,6 +118,16 @@ const commonTools: CommonTools = {
     href: "https://www.python.org/",
     icon: <PythonIcon className={classNameIcons} />,
   },
+  typescript: {
+    key: "typescript",
+    href: "https://www.typescriptlang.org/",
+    icon: <TypescriptIcon className={classNameIcons} />,
+  },
+  javascript: {
+    key: "javascript",
+    href: "https://www.javascript.com/",
+    icon: <JavascriptIcon className={classNameIcons} />,
+  },
 };
 const link = (commonTool: CommonTool) => (
   <a key={commonTool.key} href={commonTool.href} target="_blank">
@@ -148,6 +162,7 @@ export const routes: routes[] = [
     },
     image: ImageHunt,
     tools: [
+      link(commonTools.typescript),
       link(commonTools.nextJs),
       link(commonTools.react),
       link(commonTools.tailwind),
