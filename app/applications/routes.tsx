@@ -146,6 +146,7 @@ export const routes: routes[] = [
       "screenNikeBLue.webp,screenNikeGreen.webp,screenNikeRed.webp,screenNikeWhite.webp",
     carrusel: true,
     tools: [
+      link(commonTools.typescript),
       link(commonTools.react),
       link(commonTools.vite),
       link(commonTools.styledComponents),
