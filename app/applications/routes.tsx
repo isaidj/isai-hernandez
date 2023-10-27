@@ -228,7 +228,7 @@ export const routes: routes[] = [
   },
   {
     name: "G-Scanner - Mobile App",
-    link: "https://g-scanner-aca2i6mp6-isaidj.vercel.app/",
+    link: "https://g-scanner-q34a4zdum-isaidj.vercel.app/",
     image: logogscanner,
     description:
       "This app sends scanned codes to the desktop application (G-Scanner), which inserts the code into the open program. It helps streamline the inventory process but can also be used for any other process that requires scanning barcodes.",
@@ -241,7 +241,7 @@ export const routes: routes[] = [
   },
   {
     name: "G-Scanner - Desktop App",
-    link: "https://g-scanner-aca2i6mp6-isaidj.vercel.app/",
+    link: "https://g-scanner-q34a4zdum-isaidj.vercel.app/",
     image: logogscanner,
     description:
       "This application receives scanned codes from the mobile application (G-Scanner) and inserts them into the open program. This application is built with Electron and Python.",
