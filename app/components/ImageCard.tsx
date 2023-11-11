@@ -8,6 +8,7 @@ export const ImageCard = ({ img }: { img: any }) => {
         src={img.urls.regular}
         className="rounded-2xl cursor-pointer"
         alt="..."
+        unoptimized={true}
       />
     </div>
   );

@@ -81,6 +81,7 @@ const LinkRoute = ({ route }: { route: routes }) => {
                 src={route.image}
                 alt={route.name}
                 className="h-52 w-full object-cover aspect-square  hover:opacity-90 transition-opacity duration-75 ease-in-out "
+                unoptimized={true}
               />
             )}
             {route.platforms && (
@@ -173,6 +174,7 @@ const Carrousell = ({ images }: { images: string[] | StaticImageData[] }) => {
       className="h-52 w-full object-cover aspect-square hover:opacity-75"
       width={800}
       height={800}
+      unoptimized={true}
     />
   );
 };
