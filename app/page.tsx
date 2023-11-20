@@ -4,6 +4,7 @@ import { SocialMedia } from "./components/SocialMedia";
 import Skills, {
   backEndSkills,
   cloudSkills,
+  experience,
   frontEndSkills,
 } from "./components/Skills";
 import { DownIcon } from "@/assets/Icons";
@@ -57,7 +58,6 @@ export default function Home() {
           />
           <SocialMedia />
         </div>
-
         {/* Skills Section 1 */}
         <div id="skills-1" className="w-full">
           <div className="flex flex-col gap-4 md:flex-row">
@@ -68,10 +68,10 @@ export default function Home() {
               <Skills skills={frontEndSkills} title="Front-end" />
             </div>
             <div
-              id="back-end-container"
+              id="devices-container"
               className="flex flex-col w-full gap-4 mt-4 md:w-1/2"
             >
-              <Skills skills={backEndSkills} title="Back-end" />
+              <Skills skills={experience} title="Experience in" />
             </div>
           </div>
         </div>
@@ -89,11 +89,21 @@ export default function Home() {
       <div id="skills-2" className="w-full">
         <div className="flex flex-col gap-4 md:flex-row">
           <div
+            id="back-end-container"
+            className="flex flex-col w-full gap-4 mt-4 md:w-1/2"
+          >
+            <Skills skills={backEndSkills} title="Back-end" />
+          </div>
+          <div
             id="cloud-container"
             className="flex flex-col w-full gap-4 mt-4 md:w-1/2"
           >
             <Skills skills={cloudSkills} title="Cloud" />
           </div>
+        </div>
+      </div>
+      <div id="skills-3" className="w-full">
+        <div className="flex flex-col gap-4 md:flex-row">
           <div
             id="other-container"
             className="flex flex-col w-full gap-4 mt-4 md:w-1/2"

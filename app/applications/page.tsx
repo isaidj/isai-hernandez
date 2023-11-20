@@ -84,7 +84,7 @@ const LinkRoute = ({ route }: { route: routes }) => {
               />
             )}
             {route.platforms && (
-              <div className="absolute bottom-0 right-0 flex flex-row gap-2 bg-gray-900 bg-opacity-70 px-2 rounded-l-sm">
+              <div className="absolute bottom-0 right-0 flex flex-row items-center gap-2 bg-gray-900 bg-opacity-70 px-2 rounded-l-sm">
                 {route.platforms.map((platform, index) => (
                   <div key={route.name + index}>{platform}</div>
                 ))}

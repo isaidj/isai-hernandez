@@ -1,11 +1,14 @@
 "use client";
 import {
   AwsIcon,
+  DesktopIcon,
   ElectronIcon,
   ExpoIcon,
   ExpoV2Icon,
   ExpressJsIcon,
   HerokuIcon,
+  JavascriptIcon,
+  MobileIcon,
   MySqlIcon,
   NetlifyIcon,
   NextJsIcon,
@@ -14,6 +17,7 @@ import {
   ReactIconV2,
   StyledComponentsIcon,
   TailwindIcon,
+  TypescriptIcon,
   VercelIcon,
 } from "@/assets/Icons";
 import Link from "next/link";
@@ -33,17 +37,6 @@ export const frontEndSkills: Skill[] = [
     link: "https://react.dev/",
   },
   {
-    name: "NextJS",
-    icon: (
-      <NextJsIcon
-        className={"w-9 h-9 text-white " + iconClassName}
-        id="nextjs"
-      />
-    ),
-    link: "https://nextjs.org/",
-  },
-
-  {
     name: "React Native",
     icon: (
       <div className="relative w-9 h-9 md:w-16 md:h-16">
@@ -60,22 +53,33 @@ export const frontEndSkills: Skill[] = [
     link: "https://reactnative.dev/",
   },
   {
+    name: "NextJS",
+    icon: (
+      <NextJsIcon
+        className={"w-9 h-9 text-white " + iconClassName}
+        id="nextjs"
+      />
+    ),
+    link: "https://nextjs.org/",
+  },
+
+  {
     name: "Expo",
     icon: (
       <ExpoV2Icon className={"w-9 h-9 fill-white " + iconClassName} id="expo" />
     ),
     link: "https://expo.dev/",
   },
-  {
-    name: "ElectronJS",
-    icon: (
-      <ElectronIcon
-        className={"fill-teal-300 " + iconClassName}
-        id="electron"
-      />
-    ),
-    link: "https://www.electronjs.org/",
-  },
+  // {
+  //   name: "ElectronJS",
+  //   icon: (
+  //     <ElectronIcon
+  //       className={"fill-teal-300 " + iconClassName}
+  //       id="electron"
+  //     />
+  //   ),
+  //   link: "https://www.electronjs.org/",
+  // },
   {
     name: "TailwindCSS",
     icon: (
@@ -116,6 +120,46 @@ export const backEndSkills: Skill[] = [
       <MySqlIcon className="w-10 h-10 fill-white md:w-16 md:h-16" id="mysql" />
     ),
     link: "https://www.mysql.com/",
+  },
+];
+export const experience: Skill[] = [
+  {
+    name: "Mobile ✅",
+    icon: (
+      <div className="relative w-9 h-9 md:w-16 md:h-16">
+        <MobileIcon
+          className={"absolute  stroke-slate-200 " + iconClassName}
+          id="react-native"
+        />
+        {/* <ReactIcon
+          className="absolute w-9 h-9 fill-sky-500 md:w-16 md:h-16 rotate-6"
+          id="react-native"
+        /> */}
+      </div>
+    ),
+    link: "#",
+  },
+  {
+    name: "Web ✅",
+    icon: (
+      <DesktopIcon className={"stroke-slate-200  " + iconClassName} id="web" />
+    ),
+    link: "#",
+  },
+  {
+    name: "Typescript",
+    icon: (
+      <TypescriptIcon
+        className={"fill-white  " + iconClassName}
+        id="typescript"
+      />
+    ),
+    link: "https://www.typescriptlang.org/",
+  },
+  {
+    name: "Javascript",
+    icon: <JavascriptIcon className={iconClassName} id="javascript" />,
+    link: "https://nodejs.org/",
   },
 ];
 export const cloudSkills: Skill[] = [

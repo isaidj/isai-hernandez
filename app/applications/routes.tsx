@@ -8,6 +8,7 @@ import {
   JavascriptIcon,
   MantineIcon,
   NextJsIcon,
+  PlayStoreIcon,
   PythonIcon,
   ReactIcon,
   ReactIconV2,
@@ -52,7 +53,8 @@ type CommonToolsKey =
   | "electron"
   | "python"
   | "typescript"
-  | "javascript";
+  | "javascript"
+  | "playstore";
 
 interface CommonTool {
   key: string;
@@ -128,6 +130,11 @@ const commonTools: CommonTools = {
     href: "https://www.javascript.com/",
     icon: <JavascriptIcon className={classNameIcons} />,
   },
+  playstore: {
+    key: "playstore",
+    href: "https://play.google.com/store/apps/details?id=com.audimovilv2",
+    icon: <PlayStoreIcon className={classNameIcons} />,
+  },
 };
 const link = (commonTool: CommonTool) => (
   <a key={commonTool.key} href={commonTool.href} target="_blank">
@@ -192,18 +199,18 @@ export const routes: routes[] = [
       link(commonTools.mantine),
     ],
   },
-  {
-    name: "Social Quick",
-    link: "/applications/socialquick",
-    description:
-      "It's a landing page that provides quick access to the user's or company's social networks. It's made with React, TailwindCSS, and Styled Components.",
-    tag: {
-      name: "In development",
-      color: "bg-yellow-500",
-    },
-    image: Landing,
-    tools: [link(commonTools.react), link(commonTools.tailwind)],
-  },
+  // {
+  //   name: "Social Quick",
+  //   link: "/applications/socialquick",
+  //   description:
+  //     "It's a landing page that provides quick access to the user's or company's social networks. It's made with React, TailwindCSS, and Styled Components.",
+  //   tag: {
+  //     name: "In development",
+  //     color: "bg-yellow-500",
+  //   },
+  //   image: Landing,
+  //   tools: [link(commonTools.react), link(commonTools.tailwind)],
+  // },
   {
     name: "Auditoria - Web App",
     link: "#",
@@ -224,7 +231,10 @@ export const routes: routes[] = [
 
     image: logoAuditoria,
     tools: [link(commonTools.reactNative)],
-    platforms: [<AndroidIcon key="android" className={classNameIcons} />],
+    platforms: [
+      <PlayStoreIcon key="playstore" className={"w-4 h-4 md:w-4 md:h-4 "} />,
+      <AndroidIcon key="android" className={classNameIcons} />,
+    ],
   },
   {
     name: "G-Scanner - Mobile App",
