@@ -14,7 +14,6 @@ const DashboardLayout = ({ children }: any) => {
           },
           { name: "Image Hunt", link: "https://imagehunt.vercel.app/" },
           { name: "Puzzle Verse", link: "https://puzzleverse.vercel.app/" },
-          { name: "Social Quick", link: "/applications/socialquick" },
         ]}
       />
       {/* <Breadcrumbs /> */}

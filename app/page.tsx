@@ -14,12 +14,6 @@ import { DeveloperSVG } from "@/public/SvgsComponents";
 const ParticlesTriangle = dynamic(() => import("./components/Particles"), {
   ssr: false,
 });
-const MainTextAnimated = dynamic(
-  () => import("./components/MainTextAnimated"),
-  {
-    ssr: false,
-  }
-);
 
 export default function Home() {
   return (
