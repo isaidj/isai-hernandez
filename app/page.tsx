@@ -9,9 +9,16 @@ import Skills, {
 } from "./components/Skills";
 import { DownIcon } from "@/assets/Icons";
 import HiddenElementScroll from "./components/HiddenElementScroll";
+
 const ParticlesTriangle = dynamic(() => import("./components/Particles"), {
   ssr: false,
 });
+const MainTextAnimated = dynamic(
+  () => import("./components/MainTextAnimated"),
+  {
+    ssr: false,
+  }
+);
 
 export default function Home() {
   return (
@@ -25,9 +32,10 @@ export default function Home() {
       >
         <div className="flex flex-col items-center justify-center pt-9 w-full">
           <div className="w-11/12 h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-          <h1 className="z-10 text-6xl text-transparent bg-zinc-100 cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text">
+          <h1 className="z-10 text-6xl text-transparent py-4 bg-zinc-100 cursor-default text-edge-outline animate-title font-kgSummerSunshine sm:text-6xl md:text-7xl whitespace-nowrap bg-clip-text">
             Developer
           </h1>
+          <MainTextAnimated />
           <div className="w-11/12 h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
           <header className="flex flex-row justify-center w-full">
             <div className="my-16 text-center animate-subTitle">

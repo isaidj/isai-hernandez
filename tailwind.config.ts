@@ -24,6 +24,7 @@ const config: Config = {
       },
       fontFamily: {
         display: ["var(--font-chalkboard)"],
+		kgSummerSunshine: ["var(--font-kg-summer-sunshine)"],
       },
       animation: {
 				"fade-in": "fade-in 3s ease-in-out forwards",

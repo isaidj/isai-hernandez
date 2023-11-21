@@ -15,6 +15,10 @@ const chalkboard = LocalFont({
   src: "../public/fonts/Chalkboard.ttf",
   variable: "--font-chalkboard",
 });
+const kgSummerSunshine = LocalFont({
+  src: "../public/fonts/KGSummerSunshine.ttf",
+  variable: "--font-kg-summer-sunshine",
+});
 export const metadata: Metadata = {
   title: "Isai Hernandez",
   description: `This is my personal website, where I share my projects.
@@ -58,7 +62,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={[inter.className, chalkboard.variable].join(" ")}
+      className={[
+        inter.className,
+        chalkboard.variable,
+        kgSummerSunshine.variable,
+      ].join(" ")}
     >
       <head>
         <Analytics />
