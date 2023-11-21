@@ -9,6 +9,7 @@ import Skills, {
 } from "./components/Skills";
 import { DownIcon } from "@/assets/Icons";
 import HiddenElementScroll from "./components/HiddenElementScroll";
+import { DeveloperSVG } from "@/public/SvgsComponents";
 
 const ParticlesTriangle = dynamic(() => import("./components/Particles"), {
   ssr: false,
@@ -32,10 +33,9 @@ export default function Home() {
       >
         <div className="flex flex-col items-center justify-center pt-9 w-full">
           <div className="w-11/12 h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-          <h1 className="z-10 text-6xl text-transparent py-4 bg-zinc-100 cursor-default text-edge-outline animate-title font-kgSummerSunshine sm:text-6xl md:text-7xl whitespace-nowrap bg-clip-text">
-            Developer
-          </h1>
-          <MainTextAnimated />
+
+          <DeveloperSVG className="z-10 w-11/12 max-w-xl h-auto text-transparent py-4 fill-zinc-100 cursor-default text-edge-outline animate-title font-kgSummerSunshine  whitespace-nowrap bg-clip-text" />
+
           <div className="w-11/12 h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
           <header className="flex flex-row justify-center w-full">
             <div className="my-16 text-center animate-subTitle">
