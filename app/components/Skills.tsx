@@ -123,29 +123,25 @@ export const backEndSkills: Skill[] = [
   },
 ];
 export const experience: Skill[] = [
-  {
-    name: "Mobile ✅",
-    icon: (
-      <div className="relative w-9 h-9 md:w-16 md:h-16">
-        <MobileIcon
-          className={"absolute  stroke-slate-200 " + iconClassName}
-          id="react-native"
-        />
-        {/* <ReactIcon
-          className="absolute w-9 h-9 fill-sky-500 md:w-16 md:h-16 rotate-6"
-          id="react-native"
-        /> */}
-      </div>
-    ),
-    link: "#",
-  },
-  {
-    name: "Web ✅",
-    icon: (
-      <DesktopIcon className={"stroke-slate-200  " + iconClassName} id="web" />
-    ),
-    link: "#",
-  },
+  // {
+  //   name: "Mobile ✅",
+  //   icon: (
+  //     <div className="relative w-9 h-9 md:w-16 md:h-16">
+  //       <MobileIcon
+  //         className={"absolute  stroke-slate-200 " + iconClassName}
+  //         id="react-native"
+  //       />
+  //     </div>
+  //   ),
+  //   link: "#",
+  // },
+  // {
+  //   name: "Web ✅",
+  //   icon: (
+  //     <DesktopIcon className={"stroke-slate-200  " + iconClassName} id="web" />
+  //   ),
+  //   link: "#",
+  // },
   {
     name: "Typescript",
     icon: (
@@ -203,7 +199,7 @@ const Skills = ({ title, skills }: { title: string; skills: Skill[] }) => {
 
   return (
     <>
-      <h3 className="w-fit text-xl text-zinc-300 text-start animate-appearance-in">
+      <h3 className="w-fit text-xl text-zinc-300 text-start animate-appearance-in ml-4 md:ml-0">
         {title}
       </h3>
 

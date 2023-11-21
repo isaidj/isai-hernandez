@@ -41,7 +41,7 @@ const LinkRoute = ({ route }: { route: routes }) => {
   };
   return (
     <article
-      className={`group flex flex-col md:flex-row   ${isOpened && "w-auto"}  `}
+      className={`group flex flex-col md:flex-row   ${isOpened && " h-auto"}`}
       id={route.name}
     >
       <div className="">
@@ -49,7 +49,7 @@ const LinkRoute = ({ route }: { route: routes }) => {
           <Link
             href={route.link}
             className={
-              "relative flex items-center aspect-square w-full h-auto overflow-hidden rounded-lg bg-black xl:aspect-h-8 xl:aspect-w-7" +
+              "relative flex items-center  w-full h-auto overflow-hidden rounded-lg bg-black xl:aspect-h-8 xl:aspect-w-7" +
               (route.link === "#" ? " cursor-not-allowed" : "")
             }
             aria-disabled={route.link === "#" ? true : false}

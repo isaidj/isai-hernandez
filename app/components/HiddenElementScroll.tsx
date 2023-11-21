@@ -13,13 +13,14 @@ const HiddenElementScroll = ({
 }) => {
   const [isHidden, setIsHidden] = React.useState(false);
 
-const scrollTo = (id: string) => {
-  const element = document.getElementById(id);
-  element?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-    inline: "start",
-  });
+  const scrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "start",
+    });
+  };
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > offset) {

@@ -17,7 +17,7 @@ const ParticlesTriangle = dynamic(() => import("./components/Particles"), {
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center pt-3 sm:p-24 sm:py-0 relative bg-gradient-to-r from-black via-gray-900 to-black gap-4 overflow-y-scroll scrollbar-visible">
+    <main className="flex min-h-screen flex-col items-center pt-3 sm:p-24 sm:py-0 relative bg-gradient-to-r from-black via-gray-900 to-black gap-4 scrollbar-visible">
       <ParticlesTriangle />
       <MainMenu
         routes={[
@@ -31,12 +31,12 @@ export default function Home() {
         className="w-full flex flex-col items-center justify-between min-h-[calc(100vh-7rem)] z-10"
         id="home"
       >
-        <div className="flex flex-col items-center justify-center pt-9">
-          <div className="w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="flex flex-col items-center justify-center pt-9 w-full">
+          <div className="w-11/12 h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
           <h1 className="z-10 text-6xl text-transparent bg-zinc-100 cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text">
             Developer
           </h1>
-          <div className="w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+          <div className="w-11/12 h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
           <header className="flex flex-row justify-center w-full">
             <div className="my-16 text-center animate-subTitle">
               <h2 className="text-sm text-zinc-500 sm:w-90">
@@ -53,7 +53,7 @@ export default function Home() {
           </header>
 
           <div
-            className="mt-4 opacity-0 w-screen h-px animate-glow md:block animate-fade-right-stay bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0"
+            className="mt-4 opacity-0 w-11/12 h-px animate-glow md:block animate-fade-right-stay bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0"
             style={{ animationDelay: "1600ms" }}
           />
           <SocialMedia />
@@ -71,7 +71,7 @@ export default function Home() {
               id="devices-container"
               className="flex flex-col w-full gap-4 mt-4 md:w-1/2"
             >
-              <Skills skills={experience} title="Experience in" />
+              <Skills skills={experience} title="Programming Languages" />
             </div>
           </div>
         </div>
