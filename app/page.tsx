@@ -9,8 +9,6 @@ import Skills, {
 } from "./components/Skills";
 import { DownIcon } from "@/assets/Icons";
 import HiddenElementScroll from "./components/HiddenElementScroll";
-import Link from "next/link";
-
 const ParticlesTriangle = dynamic(() => import("./components/Particles"), {
   ssr: false,
 });
@@ -19,14 +17,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center pt-3 sm:p-24 sm:py-0 relative bg-gradient-to-r from-black via-gray-900 to-black gap-4 scrollbar-visible">
       <ParticlesTriangle />
-      <MainMenu
-        routes={[
-          { name: "Projects", link: "/applications" },
-          // { name: "Skills", link: "#skills-1" },
-        ]}
-      />
+      <MainMenu routes={[{ name: "Projects", link: "/applications" }]} />
 
-      {/* Hero Section */}
       <div
         className="w-full flex flex-col items-center justify-between min-h-[calc(100vh-7rem)] z-10"
         id="home"

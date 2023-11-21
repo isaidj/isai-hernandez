@@ -1,5 +1,3 @@
-import { Providers } from "./providers";
-import { MainMenu } from "@/app/components/Menus";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
@@ -71,9 +69,7 @@ export default function RootLayout({
         ></script>
       </head>
       <body className={roboto.className}>
-        <Providers>
-          <main className="dark flex min-h-screen flex-col">{children}</main>
-        </Providers>
+        <main className="dark flex min-h-screen flex-col">{children}</main>
       </body>
     </html>
   );

@@ -27,8 +27,6 @@ const HiddenElementScroll = ({
         setIsHidden(true);
       } else {
         setIsHidden(false);
-        //New window
-        window.open("https://www.google.com", "_blank");
       }
     };
     window.addEventListener("scroll", handleScroll);
