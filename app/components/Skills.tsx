@@ -9,6 +9,7 @@ import {
   NetlifyIcon,
   NextJsIcon,
   NodeIcon,
+  PrismaIcon,
   PythonIcon,
   ReactIcon,
   StyledComponentsIcon,
@@ -103,6 +104,15 @@ export const backEndSkills: Skill[] = [
       <MySqlIcon className="w-10 h-10 fill-white md:w-16 md:h-16" id="mysql" />
     ),
     link: "https://www.mysql.com/",
+  },
+  {
+    name: "Prisma",
+    icon: (
+      <div className="bg-neutral-950 py-0 px-4 rounded-md">
+        <PrismaIcon className={"fill-white " + iconClassName} id="prisma" />
+      </div>
+    ),
+    link: "https://www.prisma.io/",
   },
 ];
 export const experience: Skill[] = [
