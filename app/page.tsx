@@ -28,7 +28,7 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center pt-9 w-full">
           <div className="w-11/12 h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
-          <DeveloperSVG className="z-10 w-11/12 max-w-xl h-auto text-transparent py-4 fill-zinc-100 cursor-default text-edge-outline animate-title font-kgSummerSunshine  whitespace-nowrap bg-clip-text" />
+          <DeveloperSVG className="z-10 w-11/12 max-w-xl h-auto text-transparent py-4 fill-zinc-300 cursor-default text-edge-outline animate-title font-kgSummerSunshine  whitespace-nowrap bg-clip-text" />
 
           <div className="w-11/12 h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
           <header className="flex flex-row justify-center w-full">

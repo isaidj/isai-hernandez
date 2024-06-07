@@ -199,18 +199,7 @@ export const routes: routes[] = [
       link(commonTools.mantine),
     ],
   },
-  // {
-  //   name: "Social Quick",
-  //   link: "/applications/socialquick",
-  //   description:
-  //     "It's a landing page that provides quick access to the user's or company's social networks. It's made with React, TailwindCSS, and Styled Components.",
-  //   tag: {
-  //     name: "In development",
-  //     color: "bg-yellow-500",
-  //   },
-  //   image: Landing,
-  //   tools: [link(commonTools.react), link(commonTools.tailwind)],
-  // },
+
   {
     name: "Auditoria - Web App",
     link: "#",

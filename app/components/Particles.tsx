@@ -167,3 +167,71 @@ export const ParticlesTriangle = () => {
 };
 
 export default ParticlesTriangle;
+
+export const ParticlesDrops = () => {
+  //particles moving randomly
+  const particlesInit = useCallback(async (engine: Engine) => {
+    console.log(engine);
+
+    await loadSlim(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(
+    async (container: Container | undefined) => {
+      await console.log(container);
+    },
+    []
+  );
+
+  return (
+    <Particles
+      id="tsparticles"
+      init={particlesInit}
+      loaded={particlesLoaded}
+      className="absolute inset-0  animate-fade-in"
+      options={{
+        fpsLimit: 60,
+        particles: {
+          color: {
+            value: "#ffffff",
+          },
+          move: {
+            direction: "none",
+            enable: true,
+            outModes: {
+              default: "bounce",
+            },
+            random: false,
+            speed: 1,
+            straight: false,
+          },
+          number: {
+            density: {
+              enable: true,
+              area: 800,
+            },
+
+            value: 10,
+          },
+          shape: {
+            type: "image",
+            image: {
+              //en public is the path
+              src: "/logodev.png",
+              width: 100,
+              height: 100,
+            },
+          },
+          size: {
+            value: 5,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 5,
+            },
+          },
+        },
+      }}
+    />
+  );
+};

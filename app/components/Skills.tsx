@@ -9,6 +9,7 @@ import {
   NetlifyIcon,
   NextJsIcon,
   NodeIcon,
+  PythonIcon,
   ReactIcon,
   StyledComponentsIcon,
   TailwindIcon,
@@ -119,6 +120,11 @@ export const experience: Skill[] = [
     name: "Javascript",
     icon: <JavascriptIcon className={iconClassName} id="javascript" />,
     link: "https://nodejs.org/",
+  },
+  {
+    name: "Python",
+    icon: <PythonIcon className={iconClassName} id="python" />,
+    link: "https://www.python.org/",
   },
 ];
 export const cloudSkills: Skill[] = [
