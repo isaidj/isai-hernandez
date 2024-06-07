@@ -100,9 +100,7 @@ export const backEndSkills: Skill[] = [
   },
   {
     name: "MySQL",
-    icon: (
-      <MySqlIcon className="w-10 h-10 fill-white md:w-16 md:h-16" id="mysql" />
-    ),
+    icon: <MySqlIcon className={" fill-white " + iconClassName} id="mysql" />,
     link: "https://www.mysql.com/",
   },
   {
