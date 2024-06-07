@@ -107,11 +107,7 @@ export const backEndSkills: Skill[] = [
   },
   {
     name: "Prisma",
-    icon: (
-      <div className="bg-neutral-950 py-0 px-4 rounded-md">
-        <PrismaIcon className={"fill-white " + iconClassName} id="prisma" />
-      </div>
-    ),
+    icon: <PrismaIcon className={"fill-white " + iconClassName} id="prisma" />,
     link: "https://www.prisma.io/",
   },
 ];
